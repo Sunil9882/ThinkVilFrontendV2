@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Root Variables */
+:root {
+  
+  --foreground-color: #000000; /* Black */
+  --background-start-color: #C8C8F0; /* Light Purple */
+  --background-end-color: #FFC8FF; /* Pinkish */
+  
+  /* --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 200, 200, 240;
+  --background-end-rgb: 255, 200, 255; */
+
+}
+
+/* Body Styling */
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Styled Headings */
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Card Styling */
+.card {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Button Styling */
+.button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Images */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Navbar Styling */
+.navbar {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Footer Styling */
+.footer {
+  background: linear-gradient(to top, rgb(var(--background-start-rgb)), rgb(var(--background-end-rgb)));
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+/* Link Hover Effects */
+a {
+  color: #007bff;
+  text-decoration:none;
+  transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+.header {
+  padding: 0%;
+  margin: 0%;
+  background: #af5e5e;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 rgba(0, 123, 255, 0.4); }
+  50% { transform: scale(1.1); box-shadow: 0 0 10px rgba(0, 123, 255, 0.6); }
+  100% { transform: scale(1); box-shadow: 0 0 0 rgba(0, 123, 255, 0.4); }
+}
+
+.login-donate-btn {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+  animation: pulse 2s infinite;
+}
+
+.login-donate-btn:hover {
+  background-color: #1d4ed8;
+  color: black;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.7);
+}
+
+/* Dropping Text Animation for "Meet the Creators" */
+
+/* @keyframes drop-in {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.drop-text {
+  animation: drop-in 1s ease-out;
+} */
+
+/* Bouncing Animation for "Support Our Mission" */
+/* Dropping Text Animation */
+
+/* @keyframes drop-in {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+}
+
+.drop-text {
+  animation: drop-in 1s ease-out;
+}
+
+.bounce-text {
+  animation: bounce-text 1s infinite;
+} */
+
+
+
+
