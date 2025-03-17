@@ -2,7 +2,7 @@ import axios from "axios";
 import { getToken } from "./auth";
 
 const axiosClient = axios.create({
-  baseURL: "http://localhost:8080", // Base URL
+  baseURL: "jarvis-production-1e68.up.railway.app", // Base URL
   headers: {
     "Content-Type": "application/json",
   },
