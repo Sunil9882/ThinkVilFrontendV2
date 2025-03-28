@@ -1,8 +1,10 @@
 import axios from "axios";
 import { getToken } from "./auth";
 
+console.log("url " + process.env.NEXT_PUBLIC_API_URL);
+
 const axiosClient = axios.create({
-  baseURL: "http://localhost:8080", // Base URL
+  baseURL: process.env.NEXT_PUBLIC_API_URL, // Base URL
   headers: {
     "Content-Type": "application/json",
   },
