@@ -4,7 +4,7 @@ import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc"; // Google icon
 import { FaGithub } from "react-icons/fa"; // GitHub icon
 
-export default function SocialAuth() {
+export default function LoginAuth() {
   const handleLogin = async (provider: string) => {
     try {
       await signIn(provider, { callbackUrl: "/" });

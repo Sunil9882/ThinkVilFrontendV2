@@ -24,7 +24,7 @@ export default function Footer() {
 
         {/* Solutions */}
         <div>
-          <h3 className="text-2xl font-bold mb-3">Solutions</h3>
+          <h3 className="text-2xl font-bold mb-3">Quick Links</h3>
           <ul className="space-y-2 px-3 font-bold">
             {["Physics", "Mathematics", "Chemistry"].map((title, index) => (
               <li key={index}>

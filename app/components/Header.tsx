@@ -9,17 +9,24 @@ export default function Header() {
   const menuRef = useRef<HTMLUListElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const router = useRouter();
-
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-// Check for JWT token on component mount and whenever `token` changes
-useEffect(() => {
-  if (typeof window !== "undefined") { // Ensure it runs only on client-side
-    const token = localStorage.getItem("token");
-    setIsAuthenticated(!!token); 
-  }
-}, []);
+  // Check for authentication status
+  useEffect(() => {
+    const checkAuthStatus = () => {
+      const token = localStorage.getItem("token"); // Check token presence
+      setIsAuthenticated(!!token);
+    };
 
+    checkAuthStatus();
+
+    // Listen for storage changes (e.g., login from another tab)
+    window.addEventListener("storage", checkAuthStatus);
+
+    return () => {
+      window.removeEventListener("storage", checkAuthStatus);
+    };
+  }, []);
 
   // Logout function
   const handleLogout = () => {
@@ -73,10 +80,12 @@ useEffect(() => {
         ref={menuRef}
         className={`absolute md:static top-16 left-0 w-full md:w-auto bg-white md:bg-transparent md:flex md:space-x-2 p-4 md:p-0 shadow-md md:shadow-none transition-all ${isMenuOpen ? "block" : "hidden"}`}
       >
-        {[{ href: "/simulations/physics", label: "Physics" },
+        {[
+          { href: "/simulations/physics", label: "Physics" },
           { href: "/simulations/mathematics", label: "Mathematics" },
           { href: "/simulations/chemistry", label: "Chemistry" },
-          { href: "/about", label: "About" }].map(({ href, label }) => (
+          { href: "/about", label: "About" },
+        ].map(({ href, label }) => (
           <li key={href} onClick={() => setIsMenuOpen(false)}>
             <Link href={href} className="px-3 py-2 rounded-xl font-semibold block hover:bg-sky-300 hover:text-black">
               {label}

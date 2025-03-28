@@ -8,10 +8,10 @@ import "@/app/globals.css"; // Ensure global styles are imported
 import { createPaymentOrder, verifyPayment, saveDonation } from "../api/auth";
 
 const presetAmounts = [
-  { amount: 1, icon: Coffee, label: "$1" },
-  { amount: 5, icon: Gift, label: "$5" },
-  { amount: 10, icon: Heart, label: "$10" },
-  { amount: 25, icon: DollarSign, label: "$25" },
+  { amount: 100, icon: Coffee, label: "₹100" },
+  { amount: 500, icon: Gift, label: "₹500" },
+  { amount: 1000, icon: Heart, label: "₹1000" },
+  { amount: 2000, icon: DollarSign, label: "₹2000" },
 ];
 
 export default function Donate() {
@@ -64,7 +64,7 @@ export default function Donate() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!fullName.trim() || !email.trim() || Number(customAmount) < 1) {
-      alert("Please fill in all required fields and ensure the donation amount is at least $1.");
+      alert("Please fill in all required fields and ensure the donation amount is at least ₹50.");
       return;
     }
     const selectedCountry = country === "Other" ? customCountry.trim() : country;
@@ -78,8 +78,8 @@ export default function Donate() {
   };
 
   const handlePayment = async () => {
-    if (!fullName.trim() || !email.trim() || Number(customAmount) < 1) {
-      alert("Please fill in all required fields and ensure the donation amount is at least $1.");
+    if (!fullName.trim() || !email.trim() || Number(customAmount) < 50) {
+      alert("Please fill in all required fields and ensure the donation amount is at least ₹50.");
       return;
     }
 
