@@ -28,7 +28,7 @@ interface SubjectPageProps {
 
 function SubjectPage({ title, topics }: SubjectPageProps) {
   return (
-    <div className="min-h-screen bg-gray-100 py-4">
+    <div className="min-h-screen bg-gray-100 py-4 mt-5">
       {/* Header Section */}
       <header className="bg-teal-600 text-white text-center py-4 text-3xl font-semibold mt-12 rounded-2xl">
         {title}

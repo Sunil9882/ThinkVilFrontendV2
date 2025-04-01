@@ -247,19 +247,19 @@ function input(){
 
   ResponsiveBigsize=function ResponsiveBigsize(){
       let X_I=width-360;
-      let Y_I=50;
+      let Y_I=10;
       /// Make Equation element input at same place
       let Quad_X=X_I+80;
       let Quad_Y=Y_I+70;
       // -------------------SOLUTIONS----------------------------------
       let X_O=width-360;
-      let Y_O=240; 
+      let Y_O=180; 
       ///-------------------VALUE AT Point------------------------------
       let V_X=width-360;
-      let V_Y=430;
+      let V_Y=370;
       ///-------------------DOMAIN AND RANGE------------------------------
       let D_X=width-360;
-      let D_Y=600;
+      let D_Y=540;
 
       // ------------FULL SCREEN BUTTON-----------------------
       fullbtn.position(width/2+290,9*height/10).style('font-size','13px').style('background-color','RGB(225,225,225)').style('padding','5px').style('border-radius','5px');

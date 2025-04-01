@@ -5,25 +5,20 @@ import Link from "next/link";
 
 // Define topics for Physics simulations
 const physicsTopics = [
-  // { 
-  //   title: "Unit & Dimension", 
-  //   image: "/All_Images/Simulation_Images/Physics/Unit_Dimension.png", 
-  //   link: "/simulations/physics/Unit_Dimension"
-  // },
   { 
-    title: "One Dimension Motion", 
-    image: "/All_Images/Simulation_Images/Physics/One_Dimension_Motion.png", 
-    link: "/simulations/physics/One_Dimension_Motion" 
+    title: "Rectilinear Motion", 
+    image: "/All_Images/Simulation_Images/Physics/Rectilinear_Motion.png", 
+    link: "/simulations/physics/Rectilinear_Motion" 
   },
   { 
-    title: "Projectile Motion", 
-    image: "/All_Images/Simulation_Images/Physics/Projectile_Motion.png", 
-    link: "/simulations/physics/Projectile_Motion" 
+    title: "Cannonball Motion", 
+    image: "/All_Images/Simulation_Images/Physics/Cannonball_Motion.png", 
+    link: "/simulations/physics/Cannonball_Motion" 
   },
   { 
-    title: "Relative Motion", 
-    image: "/All_Images/Simulation_Images/Physics/Relative_Motion.png", 
-    link: "/simulations/physics/Relative_Motion" 
+    title: "Cars Relative Motion", 
+    image: "/All_Images/Simulation_Images/Physics/Cars_Relative_Motion.png", 
+    link: "/simulations/physics/Cars_Relative_Motion" 
   },
   { 
     title: "Rain Person Problem", 
@@ -36,9 +31,9 @@ const physicsTopics = [
     link: "/simulations/physics/Mass_Block_Motion" 
   },
   { 
-    title: "Incline Plane Motion", 
-    image: "/All_Images/Simulation_Images/Physics/Incline_Plane_Motion.png",  
-    link: "/simulations/physics/Incline_Plane_Motion" 
+    title: "Incline Plane Pulley Motion", 
+    image: "/All_Images/Simulation_Images/Physics/Incline_Plane_Pulley_Motion.png",  
+    link: "/simulations/physics/Incline_Plane_Pulley_Motion" 
   },
   { 
     title: "Pulley System", 
@@ -71,7 +66,7 @@ interface SubjectPageProps {
 // Subject Page layout component for displaying the physics topics
 function SubjectPage({ title, topics }: SubjectPageProps) {
   return (
-    <div className="min-h-screen bg-gray-100 py-4">
+    <div className="min-h-screen bg-gray-100 py-4 mt-5">
       {/* Header Section */}
       <header className="bg-teal-600 text-white text-center py-4 text-3xl font-semibold mt-12 rounded-2xl">
         {title}

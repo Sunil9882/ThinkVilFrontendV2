@@ -1,3 +1,6 @@
+// Latest changes No. 1
+// change: "Click here for Fullscreen and Landscape mode" to "Tap here for Fullscreen and Landscape mode"
+
 //---------------------CONTROLLER VARIABLES--------------------
 let fullbtn,Zoom_IN,Zoom_OUT;
 
@@ -37,7 +40,7 @@ function setup() {
     //-----------------FULL SCREEN AND LANDSCAPE BUTTON FOR SMART PHONE SCREEN SIZE----------------------------------------
      Dom_elements = [Canvas,fullbtn,Zoom_IN,Zoom_OUT,Input,QUAD,y_Span,A,X_A,x_square,B,X_B,C,Hide_INbtn, Solution_Box,Show_soln_checkbox,SOLUTION,Output_ROOT,Output_Vertex,Output_Yintersect,Output_Axis_OS,Value_XBox,At_pointX_checkbox,At_point,X,X_cord,Y_at_X,Tangent,DOMAIN_Box,Domain_checkbox,Domain_Div,DOMAIN,Domain_type,Domain_X1_Value,Domain_X2_Value,Domain_Range,Hide_Out_sln,Hide_Out_X,Hide_Out_Domain];
     Dom_elements.forEach(el => el.hide());
-    full_landscape=createButton('Click here for Fullscreen and Landscape mode');
+    full_landscape=createButton('Tap here for Fullscreen and Landscape mode');
     full_landscape.position(0,0).size(document.documentElement.clientWidth,document.documentElement.clientHeight).style('font-size','12px');
     full_landscape.mousePressed(fulllandscape);
 
@@ -68,14 +71,14 @@ function fulllandscape(){
 }
 function exitlandscape(){
   fullscreen(false);
-  full_landscape.html('Click here for Fullscreen and Landscape mode');
+  full_landscape.html('Tap here for Fullscreen and Landscape mode');
   full_landscape.position(0,0).size(document.documentElement.clientHeight,document.documentElement.clientWidth).style('font-size','12px');
   Dom_elements.forEach(el => el.hide());
   full_landscape.mousePressed(fulllandscape);
 }
 
 function handleVisibilityChange() {
-  full_landscape.html('Click here for Fullscreen and Landscape mode');
+  full_landscape.html('Tap here for Fullscreen and Landscape mode');
   full_landscape.position(0,0).size(document.documentElement.clientHeight,document.documentElement.clientWidth).style('font-size','12px');
   Dom_elements.forEach(el => el.hide());
   full_landscape.mousePressed(fulllandscape);

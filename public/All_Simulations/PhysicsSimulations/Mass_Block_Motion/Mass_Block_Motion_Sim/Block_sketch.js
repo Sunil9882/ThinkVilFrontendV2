@@ -1,3 +1,8 @@
+// Latest changes No. 1
+//add : reume button will convert into pause when stop button is pressed
+// change: "Click here for Fullscreen and Landscape mode" to "Tap here for Fullscreen and Landscape mode"
+
+
 //-------------------------CONTROLLER INPUTS---------------------------------------
 let buttonstart,buttonpause,fullbtn,Zoom_IN,Zoom_OUT;
 let lets_start=true;
@@ -41,7 +46,7 @@ function setup() {
     //-----------------FULL SCREEN AND LANDSCAPE BUTTON FOR SMART PHONE SCREEN SIZE----------------------------------------
     Dom_elements = [Canvas,buttonstart,buttonpause,fullbtn,Zoom_IN,Zoom_OUT,Force_Slider,Angle_force_Slider,Force_type,Force_Div,Angle_force_Div,Force_Box,Force_checkbox,Mass_Slider, Mass_Div, Static_const_Slider, Static_const_Div, Kinetic_const_Slider, Kinetic_const_Div,Input,Mass_block_Div,Gravity_Div,Friction_Div,Input_checkbox,Hide_INbtn,Output_Acc_Div, Output_Normal_Div, Output_Friction_Div, Output_MaxF_Div,Output,Output_checkbox,Output_Mass_block_Div,Hide_Outbtn];
     Dom_elements.forEach(el => el.hide());
-    full_landscape=createButton('Click here for Fullscreen and Landscape mode');
+    full_landscape=createButton('Tap here for Fullscreen and Landscape mode');
     full_landscape.position(0,0).size(document.documentElement.clientWidth,document.documentElement.clientHeight).style('font-size','12px').style('border-radius','5px');
     full_landscape.mousePressed(fulllandscape);
 
@@ -68,7 +73,7 @@ function fulllandscape(){
 }
 function exitlandscape(){
   fullscreen(false);
-  full_landscape.html('Click here for Fullscreen and Landscape mode');
+  full_landscape.html('Tap here for Fullscreen and Landscape mode');
   full_landscape.position(0,0).size(document.documentElement.clientHeight,document.documentElement.clientWidth).style('font-size','12px').style('border-radius','5px');
   Dom_elements.forEach(el => el.hide());
   full_landscape.mousePressed(fulllandscape);
@@ -76,7 +81,7 @@ function exitlandscape(){
 }
 
 function handleVisibilityChange() {
-  full_landscape.html('Click here for Fullscreen and Landscape mode');
+  full_landscape.html('Tap here for Fullscreen and Landscape mode');
   full_landscape.position(0,0).size(document.documentElement.clientHeight,document.documentElement.clientWidth).style('font-size','12px').style('border-radius','5px');
   Dom_elements.forEach(el => el.hide());
   full_landscape.mousePressed(fulllandscape);

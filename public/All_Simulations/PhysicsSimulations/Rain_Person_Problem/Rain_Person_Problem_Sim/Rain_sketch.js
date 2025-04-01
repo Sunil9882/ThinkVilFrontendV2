@@ -1,3 +1,6 @@
+// Latest changes No. 1
+//add : reume button will convert into pause when stop button is pressed
+// change: "Click here for Fullscreen and Landscape mode" to "Tap here for Fullscreen and Landscape mode"
 
 //-------------------CONTROLLER VARIABLES---------------------------
 let buttonstart,buttonpause,Zoom_IN,Zoom_OUT,fullbtn,Safe_A_Ceckbox;
@@ -40,7 +43,7 @@ function setup() {
     // -----------------FULL SCREEN AND LANDSCAPE BUTTON FOR SMART PHONE SCREEN SIZE----------------------------------------
     Dom_elements = [Canvas,buttonstart,buttonpause,Zoom_IN,Zoom_OUT,fullbtn,Safe_A_Ceckbox,Input,Input_O_checkbox,OBSERVER,RAINFALL,Hide_INbtn,Vel_O_Slider, Ang_O_Slider, Vel_R_Slider, Ang_R_Slider, Input_Vel_O, Input_Ang_O, Input_Vel_R, Input_Ang_R,Output,Vel_W_G,Output_Vector_checkbox,Hide_Outbtn,Out_Rain_Vel_G, Out_Obs_Vel_G, Out_Vel_W_O, Out_Rain_Vel_O, Out_Grd_Vel_O];
     Dom_elements.forEach(el => el.hide());
-    full_landscape=createButton('Click here for Fullscreen and Landscape mode');
+    full_landscape=createButton('Tap here for Fullscreen and Landscape mode');
     full_landscape.position(0,0).size(document.documentElement.clientWidth,document.documentElement.clientHeight).style('font-size','11px').style('border-radius','5px');
     full_landscape.mousePressed(fulllandscape);
 
@@ -67,7 +70,7 @@ function fulllandscape(){
 }
 function exitlandscape(){
   fullscreen(false);
-  full_landscape.html('Click here for Fullscreen and Landscape mode');
+  full_landscape.html('Tap here for Fullscreen and Landscape mode');
   full_landscape.position(0,0).size(document.documentElement.clientHeight,document.documentElement.clientWidth).style('font-size','12px');
   Dom_elements.forEach(el => el.hide());
   full_landscape.mousePressed(fulllandscape);
@@ -75,7 +78,7 @@ function exitlandscape(){
 }
 
 function handleVisibilityChange() {
-  full_landscape.html('Click here for Fullscreen and Landscape mode');
+  full_landscape.html('Tap here for Fullscreen and Landscape mode');
   full_landscape.position(0,0).size(document.documentElement.clientHeight,document.documentElement.clientWidth).style('font-size','12px');
   Dom_elements.forEach(el => el.hide());
   full_landscape.mousePressed(fulllandscape);

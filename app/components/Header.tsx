@@ -11,28 +11,33 @@ export default function Header() {
   const router = useRouter();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // Check for authentication status
+  // Check authentication status
   useEffect(() => {
     const checkAuthStatus = () => {
-      const token = localStorage.getItem("token"); // Check token presence
+      const token = localStorage.getItem("token");
       setIsAuthenticated(!!token);
     };
 
     checkAuthStatus();
 
     // Listen for storage changes (e.g., login from another tab)
-    window.addEventListener("storage", checkAuthStatus);
+    const handleStorageChange = () => {
+      checkAuthStatus();
+    };
+
+    window.addEventListener("storage", handleStorageChange);
 
     return () => {
-      window.removeEventListener("storage", checkAuthStatus);
+      window.removeEventListener("storage", handleStorageChange);
     };
   }, []);
 
   // Logout function
   const handleLogout = () => {
-    localStorage.removeItem("token"); // Remove token
-    setIsAuthenticated(false); // Update auth state
-    router.push("/login"); // Redirect to login
+    localStorage.removeItem("token");
+    setIsAuthenticated(false);
+    window.dispatchEvent(new Event("storage")); // Trigger event to update UI
+    router.push("/login");
   };
 
   // Close menu when clicking outside
@@ -84,7 +89,7 @@ export default function Header() {
           { href: "/simulations/physics", label: "Physics" },
           { href: "/simulations/mathematics", label: "Mathematics" },
           { href: "/simulations/chemistry", label: "Chemistry" },
-          { href: "/about", label: "About" },
+          { href: "/about", label: "About Us" },
         ].map(({ href, label }) => (
           <li key={href} onClick={() => setIsMenuOpen(false)}>
             <Link href={href} className="px-3 py-2 rounded-xl font-semibold block hover:bg-sky-300 hover:text-black">
@@ -105,7 +110,7 @@ export default function Header() {
           ) : (
             <Link
               href="/login"
-              className="px-3 py-2 rounded-xl font-semibold block bg-blue-600 text-white hover:bg-blue-700 transition"
+              className="px-3 py-2 rounded-xl font-semibold block bg-blue-600 text-white hover:text-black hover:bg-blue-700 transition"
             >
               Login
             </Link>

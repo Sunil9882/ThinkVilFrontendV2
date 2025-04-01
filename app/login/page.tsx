@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import AuthPanel from "../components/AuthPanel";
-import LoginAuth from "../components/LoginAuth";
-import { login, getToken, logout } from "../api/auth";
+import SocialAuth from "../components/SignupAuth";
+import { login, getToken, logout } from "../api/auth"; // Include logout function
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -14,12 +14,9 @@ export default function LoginPage() {
   const [token, setToken] = useState<string | null>(null);
   const router = useRouter();
 
-  // Check if user is logged in and listen for storage changes
+  // Check if the user is already logged in
   useEffect(() => {
-    const checkAuth = () => setToken(getToken());
-    checkAuth();
-    window.addEventListener("storage", checkAuth);
-    return () => window.removeEventListener("storage", checkAuth);
+    setToken(getToken());
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,15 +29,9 @@ export default function LoginPage() {
     setError("");
 
     try {
-      const response = await login(formData.email, formData.password);
-
-      if (response?.token) {
-        localStorage.setItem("token", response.token);
-        setToken(response.token);
-        router.replace("/");
-      } else {
-        setError("❌ Login failed. Please try again.");
-      }
+      await login(formData.email, formData.password);
+      setToken(getToken()); // Update token after login
+      router.replace("/");
     } catch (error: any) {
       console.error("Login error:", error);
       setError(error.response?.data?.message || "❌ Login failed. Please try again.");
@@ -50,26 +41,37 @@ export default function LoginPage() {
   };
 
   const handleLogout = () => {
-    logout();
-    localStorage.removeItem("token");
-    setToken(null);
-    router.replace("/login");
+    logout(); // Call logout function
+    setToken(null); // Clear token state
+    router.replace("/login"); // Redirect to login page
   };
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100 p-4 rounded-xl">
       <div className="relative w-full max-w-4xl bg-white shadow-lg rounded-xl flex flex-col md:flex-row overflow-hidden">
+        
+        {/* Left Panel */}
         <AuthPanel isSignup={false} toggleSignup={() => router.push("/signup")} />
+
+        {/* Right Panel */}
         <div className="w-full p-10">
           <h2 className="text-4xl font-bold text-center text-gray-900">
             {token ? "Welcome Back!" : "Sign In"}
           </h2>
 
-          {!token && <LoginAuth />}
-          {!token && <p className="text-center text-xl font-medium text-gray-700 mt-2">or use your email</p>}
+          {/* Social Login */}
+          {!token && <SocialAuth />}
 
+          {!token && (
+            <p className="text-center text-xl font-medium text-gray-700 mt-2">
+              or use your email to log in
+            </p>
+          )}
+
+          {/* Error Message */}
           {error && <p className="text-red-600 text-center text-lg">{error}</p>}
 
+          {/* Login Form (Only Show When Logged Out) */}
           {!token ? (
             <form onSubmit={handleSubmit} className="mt-6 space-y-4">
               <div>
@@ -80,6 +82,7 @@ export default function LoginPage() {
                   value={formData.email}
                   onChange={handleChange}
                   required
+                  aria-label="Email"
                   className="w-full p-2 border-2 rounded-xl border-gray-700"
                 />
               </div>
@@ -91,21 +94,32 @@ export default function LoginPage() {
                   value={formData.password}
                   onChange={handleChange}
                   required
+                  aria-label="Password"
                   className="w-full p-2 border-2 border-gray-700 rounded-xl"
                 />
               </div>
+
+              {/* Forgot Password Link */}
               <div className="text-right">
                 <Link href="/forgot-password" className="text-blue-700 hover:underline text-lg font-medium">
                   Forgot Password?
                 </Link>
               </div>
-              <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-xl transition-all text-xl" disabled={loading}>
+
+              <button
+                type="submit"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-xl transition-all text-xl"
+                disabled={loading}
+              >
                 {loading ? "Signing In..." : "Sign In"}
               </button>
             </form>
           ) : (
             <div className="mt-6 text-center">
-              <button onClick={handleLogout} className="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-xl transition-all text-xl">
+              <button
+                onClick={handleLogout}
+                className="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-xl transition-all text-xl"
+              >
                 Logout
               </button>
             </div>

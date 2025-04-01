@@ -14,14 +14,14 @@ const features = [
     title: "Interactive Learning",
     description:
       "Explore complex scientific concepts through engaging, hands-on simulations designed to make learning intuitive and memorable.",
-    image: "/All_Images/ProvideSection/learning5.png",
+    image: "/All_Images/ProvideSection/learning.png",
     icon: <Beaker className="w-8 h-8 text-indigo-600" />,
   },
   {
     title: "Reinforcing Concepts",
     description:
       "Reinforce your knowledge with ThinkViL Questions, designed to challenge and deepen your understanding through real-world applications.",
-    image: "/All_Images/ProvideSection/question13.jpg",
+    image: "/All_Images/ProvideSection/question.jpg",
     icon: <BookText className="w-8 h-8 text-teal-600" />,
   },
   {
@@ -29,7 +29,7 @@ const features = [
     description:
       "Discover how to navigate ThinkViL simulations to enhance your understanding of Physics, Chemistry, and Mathematics.",
     link: "https://www.youtube.com/@Thinkvil",
-    image: "/All_Images/ProvideSection/youtube2.png",
+    image: "/All_Images/ProvideSection/youtube.png",
     icon: <Video className="w-8 h-8 text-rose-600" />,
   },
 ];
