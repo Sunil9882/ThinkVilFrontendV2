@@ -107,7 +107,7 @@ export default function Donate() {
 
       // Razorpay options
       const options = {
-        key: process.env.RAZOR_PAY_API_KEY,
+        key: process.env.NEXT_PUBLIC_RAZOR_PAY_API_KEY,
         amount: orderData.amount,
         currency: "INR",
         name: "ThinkViL Donations",

@@ -61,7 +61,7 @@ export const verifyPayment = async (paymentData: Object): Promise<boolean> => {
  */
 export const saveDonation = async (donationData: Object): Promise<boolean> => {
   try {
-    const response = await axiosClient.post("/api/donation/save", {donationData});
+    const response = await axiosClient.post("/api/donation/save", donationData);
     return response.data;
   } catch (error) {
     console.error("save Payment Error:", error);
