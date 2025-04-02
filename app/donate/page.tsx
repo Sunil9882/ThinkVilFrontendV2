@@ -90,8 +90,8 @@ export default function Donate() {
       return;
     }
 
-    if (!customAmount || isNaN(customAmount) || Number(customAmount) < 50) {
-      alert("The donation amount must be at least ₹50.");
+    if (!customAmount || isNaN(customAmount)) {
+      console.error("Invalid amount provided");
       return;
     }
 
@@ -135,12 +135,6 @@ export default function Donate() {
     } catch (error) {
       console.error("Payment API Error:", error.message);
     }
-  };
-
-  // Update custom amount to ensure it's at least ₹50
-  const handleCustomAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = Math.max(50, Number(e.target.value)); // Ensure minimum value is ₹50
-    setCustomAmount(value.toString());
   };
 
   return (
@@ -192,29 +186,20 @@ export default function Donate() {
             {/* Preset Donation Amounts */}
             <div className="grid grid-cols-2 gap-4">
               {presetAmounts.map(({ amount, icon: Icon, label }) => (
-                <button key={amount} type="button" onClick={() => handleAmountClick(amount)} className={`flex flex-col items-center justify-center p-4 border-4 rounded-2xl text-center ${customAmount === amount.toString() ? 'bg-indigo-500 text-white' : 'bg-white text-black'} hover:bg-indigo-500 hover:text-white`}>
-                  <Icon className="text-3xl mb-2" />
-                  <span>{label}</span>
+                <button key={amount} type="button" onClick={() => handleAmountClick(amount)} 
+                  className={`flex flex-col items-center justify-center p-4 border-4 rounded-2xl transition-all duration-300 ${customAmount === amount.toString() ? "border-blue-600 bg-blue-100 scale-105" : "border-gray-400 hover:border-blue-500 hover:scale-105"}`}>
+                  <Icon className="w-6 h-6 mb-2" />
+                  <span className="font-bold">{label}</span>
                 </button>
               ))}
             </div>
 
-            {/* Custom Donation Amount */}
-            <div className="mt-4">
-              <input
-                type="number"
-                value={customAmount}
-                onChange={handleCustomAmountChange}  // Updated input handler
-                placeholder="Enter Custom Amount *"
-                className="w-full p-3 border border-gray-400 rounded-xl"
-                required
-              />
-            </div>
+            {/* Custom Amount Input */}
+            <input type="number" placeholder="Enter Custom Amount *" value={customAmount} onChange={(e) => setCustomAmount(Math.max("", Number(e.target.value)).toString())} className="w-full p-3 border border-gray-300 rounded-xl" required />
 
-            {/* Donate Button */}
-            <div className="mt-6">
-              <button type="button" onClick={handlePayment} className="w-full p-4 bg-blue-600 text-white font-bold text-xl rounded-xl hover:bg-blue-700">Donate</button>
-            </div>
+            <button type="submit" onClick={handlePayment} className="w-full text-xl bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-800 transition-all hover:text-black hover:border-black hover:font-bold border-4 border-gray-500">
+              Complete Your Gift
+            </button>
           </form>
         </div>
       </div>

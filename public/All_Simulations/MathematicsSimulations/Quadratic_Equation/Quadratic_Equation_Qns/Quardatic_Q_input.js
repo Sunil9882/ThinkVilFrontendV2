@@ -404,12 +404,12 @@ function input(){
       //QUADARATIC EQUATIONS
       QUAD.position(X_I+70,Y_I+15).style('font-size','20px').style('background-color','RGB(160,160,160)').style('padding','2px');
       y_Span.position(Quad_X-50, Quad_Y).style('font-size','25px');
-      A.position(Quad_X,Quad_Y).size(30,25).style('font-size','18px');
+      A.position(Quad_X,Quad_Y).size(35,25).style('font-size','15px');
       X_A.position(Quad_X+50,Quad_Y).style('font-size','25px');
-      x_square.position(Quad_X+85,Quad_Y-10).style('font-size','18px');
-      B.position(Quad_X+100,Quad_Y).size(30,25).style('font-size','18px');
+      x_square.position(Quad_X+70,Quad_Y-10).style('font-size','15px');
+      B.position(Quad_X+100,Quad_Y).size(35,25).style('font-size','15px');
       X_B.position(Quad_X+150,Quad_Y).style('font-size','25px');
-      C.position(Quad_X+200,Quad_Y).size(30,25).style('font-size','18px');
+      C.position(Quad_X+200,Quad_Y).size(35,25).style('font-size','15px');
 
     // ----------INPUT HIDE AND SHOW BUTTON--------------------------------------------------------------------------
       Hide_INbtn.position(X_I+10,Y_I+5).style('font-size','14px').style('background-color','lightcoral').style('border-radius','5px').style('border','2px solid black');

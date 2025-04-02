@@ -41,7 +41,7 @@ const RainPersonProblem = () => {
         <div ref={scrollContainerRef} className="flex gap-8 md:gap-12 lg:gap-16 items-center overflow-x-auto scrolling-touch scroll-smooth whitespace-nowrap pb-2">
           {[
             { id: "video1", label: "Simulation Tutorial", videoId: "ahSAdvdSkLM" },
-            { id: "video2", label: "Educational Videos", videoId: "zXSOU_fkG8Q" },
+            { id: "video2", label: "Educational Videos", videoId: "YENs27UCRpA" },
           ].map(({ id, label, videoId }) => (
             <button
               key={id}
