@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 const VernierCaliper = () => {
   const [loading, setLoading] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState("");
-  const [selectedVideo, setSelectedVideo] = useState<string>("nJLAO6A89sI");
+  const [selectedVideo, setSelectedVideo] = useState<string>("9xPHCgmA6V0");
   const [selectedButton, setSelectedButton] = useState<string>("video1");
   const router = useRouter();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -40,7 +40,7 @@ const VernierCaliper = () => {
       <div className="w-full mt-6 px-4 py-4 border border-gray-400 rounded-xl bg-slate-300 shadow-md flex justify-center">
         <div ref={scrollContainerRef} className="flex gap-8 md:gap-12 lg:gap-16 items-center overflow-x-auto scrolling-touch scroll-smooth whitespace-nowrap pb-2">
           {[
-            { id: "video1", label: "Simulation Tutorial", videoId: "nJLAO6A89sI" },
+            { id: "video1", label: "Simulation Tutorial", videoId: "9xPHCgmA6V0" },
             { id: "video2", label: "Educational Videos", videoId: "zXSOU_fkG8Q" },
           ].map(({ id, label, videoId }) => (
             <button

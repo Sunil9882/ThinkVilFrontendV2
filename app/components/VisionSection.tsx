@@ -88,7 +88,7 @@ export default function VisionSection() {
 
         {/* Vision Description */}
         <motion.p
-          className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed px-2"
+          className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed"
           variants={{
             hidden: { opacity: 0, y: 30 },
             visible: { opacity: 1, y: 0 },
@@ -132,7 +132,7 @@ export default function VisionSection() {
             <motion.iframe
               ref={videoRef}
               className="absolute inset-0 w-full h-full rounded-xl"
-              src="https://www.youtube.com/embed/GZgak41W6cQ?enablejsapi=1&mute=1&loop=1&playlist=GZgak41W6cQ"
+              src="https://www.youtube.com/embed/GZgak41W6cQ?enablejsapi=1&fs=1&mute=1&loop=1&playlist=GZgak41W6cQ"
               title="ThinkViL Introduction Video"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
