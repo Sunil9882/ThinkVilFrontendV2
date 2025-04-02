@@ -1,3 +1,6 @@
+// Latest changes No. 1
+// change: "Click here for Fullscreen and Landscape mode" to "Tap here for Fullscreen and Landscape mode"
+
 //---Full screen -----------------
 let fullbtn;
 //---------HEADING & ELEMENT INFORMATION BOX----------
@@ -53,7 +56,7 @@ function setup() {
     // -----------------FULL SCREEN AND LANDSCAPE BUTTON FOR SMART PHONE SCREEN SIZE----------------------------------------
     Dom_elements = [fullbtn,head,comp_sym,com_Name,com_No,com_mass,electro_neg,Melt_point,Boil_point,Oxi_State,S_block,P_block,D_block,F_block,A_metals,A_Emetals,Tran_metals,PTran_metals,Nobal_gas,Lanthe,Acti,Meta,O_Nmetals,Solid,Liquid,Gas,radio,H,Li,Na,K,Rb,Cs,Fr,Be,Mg,Ca,Sr,Ba,Ra,Sc,Y,Ti,Zr,Hf,Rf,V,Nb,Ta,Db,Cr,Mo,W,Sg,Mn,Tc,Re,Bh,Fe,Ru,Os,Hs,Co,Rh,Ir,Mt,Ni,Pd,Pt,Ds,Cu, Ag, Au, Rg,Zn,Cd,Hg,Cn,B,Al,Ga,In,Tl,Nh,C, Si, Ge, Sn, Pb, Fl,N, P, As, Sb, Bi, Mc,O, S, Se, Te, Po, Lv,F,Cl,Br,I,At,Ts,Ne, Ar, Kr, Xe, Rn, Og,He,Lanthenite,La, Ce, Pr, Nd, Pm, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu,Actinide,Ac,Th,Pa,U,Np,Pu,Am,Cm,Bk,Cf,Es,Fm,Md,No,Lr];
     Dom_elements.forEach(el => el.hide());
-    full_landscape=createButton('Click here for Fullscreen and Landscape mode');
+    full_landscape=createButton('Tap here for Fullscreen and Landscape mode');
     full_landscape.position(0,0).size(document.documentElement.clientWidth,document.documentElement.clientHeight).style('font-size','12px');
     full_landscape.mousePressed(fulllandscape);
 
@@ -85,14 +88,14 @@ function fulllandscape(){
 }
 function exitlandscape(){
   fullscreen(false);
-  full_landscape.html('Click here for Fullscreen and Landscape mode');
+  full_landscape.html('Tap here for Fullscreen and Landscape mode');
   full_landscape.position(0,0).size(document.documentElement.clientHeight,document.documentElement.clientWidth).style('font-size','12px');
   Dom_elements.forEach(el => el.hide());
   full_landscape.mousePressed(fulllandscape);
 }
 
 function handleVisibilityChange() {
-  full_landscape.html('Click here for Fullscreen and Landscape mode');
+  full_landscape.html('Tap here for Fullscreen and Landscape mode');
   full_landscape.position(0,0).size(document.documentElement.clientHeight,document.documentElement.clientWidth).style('font-size','12px');
   Dom_elements.forEach(el => el.hide());
   full_landscape.mousePressed(fulllandscape);

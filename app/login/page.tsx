@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import AuthPanel from "../components/AuthPanel";
-import SocialAuth from "../components/SocialAuth";
+import SocialAuth from "../components/SignupAuth";
 import { login, getToken, logout } from "../api/auth"; // Include logout function
 
 export default function LoginPage() {

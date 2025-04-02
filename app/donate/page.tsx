@@ -8,10 +8,10 @@ import "@/app/globals.css"; // Ensure global styles are imported
 import { createPaymentOrder, verifyPayment, saveDonation } from "../api/auth";
 
 const presetAmounts = [
-  { amount: 1, icon: Coffee, label: "$1" },
-  { amount: 5, icon: Gift, label: "$5" },
-  { amount: 10, icon: Heart, label: "$10" },
-  { amount: 25, icon: DollarSign, label: "$25" },
+  { amount: 100, icon: Coffee, label: "₹100" },
+  { amount: 500, icon: Gift, label: "₹500" },
+  { amount: 1000, icon: Heart, label: "₹1000" },
+  { amount: 2000, icon: DollarSign, label: "₹2000" },
 ];
 
 export default function Donate() {
@@ -63,8 +63,8 @@ export default function Donate() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!fullName.trim() || !email.trim() || Number(customAmount) < 1) {
-      alert("Please fill in all required fields and ensure the donation amount is at least $1.");
+    if (!fullName.trim() || !email.trim() || Number(customAmount) < 50) {
+      alert("Please fill in all required fields and ensure the donation amount is at least ₹50.");
       return;
     }
     const selectedCountry = country === "Other" ? customCountry.trim() : country;
@@ -78,8 +78,8 @@ export default function Donate() {
   };
 
   const handlePayment = async () => {
-    if (!fullName.trim() || !email.trim() || Number(customAmount) < 1) {
-      alert("Please fill in all required fields and ensure the donation amount is at least $1.");
+    if (!fullName.trim() || !email.trim() || Number(customAmount) < 50) {
+      alert("Please fill in all required fields and ensure the donation amount is at least ₹50.");
       return;
     }
 
@@ -186,7 +186,8 @@ export default function Donate() {
             {/* Preset Donation Amounts */}
             <div className="grid grid-cols-2 gap-4">
               {presetAmounts.map(({ amount, icon: Icon, label }) => (
-                <button key={amount} type="button" onClick={() => handleAmountClick(amount)} className={`flex flex-col items-center justify-center p-4 border-4 rounded-2xl transition-all duration-300 ${customAmount === amount.toString() ? "border-blue-600 bg-blue-100 scale-105" : "border-gray-400 hover:border-blue-500 hover:scale-105"}`}>
+                <button key={amount} type="button" onClick={() => handleAmountClick(amount)} 
+                  className={`flex flex-col items-center justify-center p-4 border-4 rounded-2xl transition-all duration-300 ${customAmount === amount.toString() ? "border-blue-600 bg-blue-100 scale-105" : "border-gray-400 hover:border-blue-500 hover:scale-105"}`}>
                   <Icon className="w-6 h-6 mb-2" />
                   <span className="font-bold">{label}</span>
                 </button>
@@ -194,7 +195,7 @@ export default function Donate() {
             </div>
 
             {/* Custom Amount Input */}
-            <input type="number" placeholder="Enter Custom Amount *" value={customAmount} onChange={(e) => setCustomAmount(Math.max(1, Number(e.target.value)).toString())} className="w-full p-3 border border-gray-300 rounded-xl" required />
+            <input type="number" placeholder="Enter Custom Amount *" value={customAmount} onChange={(e) => setCustomAmount(Math.max("", Number(e.target.value)).toString())} className="w-full p-3 border border-gray-300 rounded-xl" required />
 
             <button type="submit" onClick={handlePayment} className="w-full text-xl bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-800 transition-all hover:text-black hover:border-black hover:font-bold border-4 border-gray-500">
               Complete Your Gift

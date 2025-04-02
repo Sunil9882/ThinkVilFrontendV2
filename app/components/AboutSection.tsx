@@ -13,7 +13,6 @@ export default function AboutSection() {
       setDropEffect(false);
       setTimeout(() => setDropEffect(true), 1);
     }, 3000);
-
     return () => clearInterval(interval);
   }, []);
 
@@ -30,23 +29,28 @@ export default function AboutSection() {
     },
   ];
 
-  const title = "Meet the Creators";
-
   return (
-    <section id="about" className="py-10 px-4 bg-gray-50 text-gray-900">
+    <motion.section
+      id="about"
+      className="py-10 px-4 bg-gray-50 text-gray-900"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.2 } } }}
+    >
       <div className="max-w-6xl mx-auto text-center">
-        <motion.h2 
+        <motion.h2
           className="text-5xl font-bold tracking-tight mb-12 cursor-pointer relative"
-          whileHover={{ scale: 1.08, color: "#4F46E5" }}
+          whileHover={{ scale: 1.08, color: "#4338CA" }}
         >
-          {title.split(" ").map((word, wordIndex) => (
+          {"Meet the Creators".split(" ").map((word, wordIndex) => (
             <span key={wordIndex} className="relative inline-block mx-2">
               {word.split("").map((char, index) => (
                 <motion.span
                   key={index}
-                  initial={{ opacity: 0, y: -20 }}
+                  initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  transition={{ delay: index * 0.05, duration: 0.5 }}
                 >
                   {char}
                 </motion.span>
@@ -62,10 +66,7 @@ export default function AboutSection() {
           className="flex flex-col md:flex-row items-center justify-center gap-16 mb-12"
           initial="hidden"
           animate="visible"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1, transition: { staggerChildren: 0.3 } },
-          }}
+          variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.3 } } }}
         >
           {founders.map((person, index) => (
             <motion.div
@@ -79,7 +80,7 @@ export default function AboutSection() {
                   src={person.image}
                   alt={`Picture of ${person.name}`}
                   fill
-                  priority
+                  priority={index === 0}
                   style={{ objectFit: "cover" }}
                   className="rounded-full"
                 />
@@ -90,7 +91,7 @@ export default function AboutSection() {
                   href={person.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`LinkedIn profile of ${person.name}`}
+                  title={`Visit ${person.name}'s LinkedIn Profile`}
                   className="inline-flex items-center gap-2 text-indigo-600 hover:underline transition"
                 >
                   <Image
@@ -98,6 +99,7 @@ export default function AboutSection() {
                     alt="LinkedIn"
                     width={24}
                     height={24}
+                    loading="lazy"
                     className="hover:opacity-80 transition-opacity"
                   />
                   <span>Connect</span>
@@ -108,42 +110,36 @@ export default function AboutSection() {
         </motion.div>
 
         <motion.div
-          className="max-w-4xl mx-auto text-gray-700 space-y-6 text-lg leading-relaxed"
+          className="max-w-4xl mx-auto text-xl text-gray-700 space-y-6 leading-relaxed"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         >
           <p>
-            Hey, We’re <span className="font-semibold text-indigo-600">Ashok Kumar</span> and{" "}
-            <span className="font-semibold text-indigo-600"> Tara Chand Yadav</span>, alumni of{" "}
-            <span className="font-semibold text-indigo-600"> NIT Rourkela</span> and the{" "}
-            <span className="font-semibold text-indigo-600"> founders</span> of{" "}
+            Hey, We’re <span className="font-semibold text-indigo-600">Ashok Kumar</span> and 
+            <span className="font-semibold text-indigo-600"> Tara Chand Yadav</span>, alumni of 
+            <span className="font-semibold text-indigo-600"> NIT Rourkela</span> and the 
+            <span className="font-semibold text-indigo-600"> founders</span> of 
             <span className="font-semibold text-indigo-600"> ThinkViL</span>.
-          </p>
-          <p>
+          
             During our JEE preparation, we struggled with physics concepts requiring deep visualization.
-            This challenge led Ashok to create{" "}
-            <span className="font-semibold text-indigo-600">ThinkViL</span>, with Tara Chand joining as a co-founder,
-            to build a platform where students can explore science and mathematics through{" "}
-            <span className="font-semibold text-indigo-600">interactive simulations</span>, making learning more engaging and intuitive.
+            This challenge led Ashok to create <span className="font-semibold text-indigo-600">ThinkViL</span>, and Tara Chand joined
+            as a co-founder to develop a platform where students can explore science and mathematics
+            through <span className="font-semibold text-indigo-600">interactive simulations</span>.
           </p>
           <p>
-            ThinkViL helps educators to simplify complex topics, making learning fun for students.
-          </p>
-          <p>
-            If you find our simulations helpful, consider supporting us with a donation. Your contribution helps us to create more high-quality content-free or at most affordable.
-          </p>
-          <p>
-            Share your feedback at{" "}
+            ThinkViL helps educators simplify complex topics and makes learning fun for students.
+            If you find our simulations helpful, consider supporting us with a <span className="font-semibold text-indigo-600">donation</span>. Your contribution
+            helps us create more high-quality content for free or at the most affordable price.
+          <br />
+            Share your feedback at {""}
             <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=contact.thinkvil@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:contact.thinkvil@gmail.com"
               className="font-semibold text-indigo-600 hover:underline"
             >
               contact.thinkvil@gmail.com
-            </a>
+            </a>.
           </p>
         </motion.div>
 
@@ -154,12 +150,12 @@ export default function AboutSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <Link href="/donate">
-            <span className="inline-block px-8 py-3 text-xl font-bold bg-indigo-600 text-white rounded-full shadow-md hover:bg-indigo-700 transition cursor-pointer focus:ring-4 focus:ring-indigo-300">
-              Support
+            <span className="inline-block px-8 py-3 text-xl font-bold bg-indigo-500 text-white rounded-full shadow-md hover:bg-indigo-800 transition cursor-pointer focus:ring-4 focus:ring-indigo-300 hover:text-black">
+              Support Us
             </span>
           </Link>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

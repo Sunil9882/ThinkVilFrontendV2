@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signup } from "../api/auth"; // Import signup API function
 import AuthPanel from "../components/AuthPanel";
-import SocialAuth from "../components/SocialAuth";
+import SocialAuth from "../components/SignupAuth";
 
 export default function SignupPage() {
   const router = useRouter();

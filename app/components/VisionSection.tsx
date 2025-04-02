@@ -1,8 +1,55 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 export default function VisionSection() {
+  const videoRef = useRef<HTMLIFrameElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          playVideo();
+        } else {
+          pauseVideo();
+        }
+      },
+      { threshold: 0.5 } // Video is considered in view if at least 50% of it is visible
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
+      }
+    };
+  }, []);
+
+  const playVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.contentWindow?.postMessage(
+        '{"event":"command","func":"playVideo","args":""}',
+        "*"
+      );
+      setIsPlaying(true);
+    }
+  };
+
+  const pauseVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.contentWindow?.postMessage(
+        '{"event":"command","func":"pauseVideo","args":""}',
+        "*"
+      );
+      setIsPlaying(false);
+    }
+  };
+
   return (
     <motion.section
       className="py-12 px-4 sm:px-6 md:px-8 text-gray-900"
@@ -23,7 +70,7 @@ export default function VisionSection() {
             visible: { opacity: 1, y: 0 },
           }}
           transition={{ duration: 1, ease: "easeOut" }}
-          whileHover={{ scale: 1.05, color: "#2563eb" }} 
+          whileHover={{ scale: 1.05, color: "#2563eb" }}
         >
           Our{" "}
           <motion.span
@@ -33,7 +80,7 @@ export default function VisionSection() {
               visible: { opacity: 1, x: 0 },
             }}
             transition={{ duration: 1, ease: "easeOut" }}
-            whileHover={{ scale: 1.1, color: "#1e40af" }} 
+            whileHover={{ scale: 1.1, color: "#1e40af" }}
           >
             Vision
           </motion.span>
@@ -41,7 +88,7 @@ export default function VisionSection() {
 
         {/* Vision Description */}
         <motion.p
-          className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed px-2 cursor-pointer"
+          className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed px-2"
           variants={{
             hidden: { opacity: 0, y: 30 },
             visible: { opacity: 1, y: 0 },
@@ -53,42 +100,19 @@ export default function VisionSection() {
           <motion.span className="font-bold text-blue-700" whileHover={{ scale: 1.1 }}>
             ThinkViL
           </motion.span>
-          , we are committed to making{" "}
-          <motion.span
-            className="text-blue-700 font-semibold cursor-pointer"
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            transition={{ duration: 1, delay: 0.2 }}
-            whileHover={{ scale: 1.05, color: "#1e40af" }}
-          >
-            STEM education
-          </motion.span>{" "}
-          more{" "}
-          <motion.span className="font-semibold" whileHover={{ scale: 1.05, color: "#000" }}>
-            accessible, engaging, and enjoyable
-          </motion.span>
-          . Our interactive simulations bridge the gap between abstract concepts and real-world applications, fostering a deeper understanding for learners of all ages.
-          <br />
-          Our vision is to continuously explore innovative ways to simplify scientific concepts, making them easier to grasp and more engaging. In the future, we aim to expand our focus to{" "}
-          <motion.span
-            className="text-blue-700 font-semibold cursor-pointer"
-            whileHover={{ scale: 1.05, color: "#1e40af" }}
-          >
-            educational games, 3D simulations, and cutting-edge AR/VR technologies
-          </motion.span>{" "}
-          to revolutionize classroom learning.
+          , we are committed to making <span className="font-bold text-blue-700">STEM</span>  education more engaging and accessible to everyone. Our interactive simulations bridge the gap between abstract concepts and real-world applications, fostering a deeper understanding among learners of all ages.
+          <br />  
+          Our vision is to continuously explore innovative ways to simplify scientific concepts, making them easier to grasp and more engaging.
         </motion.p>
 
         {/* Empowerment Message */}
         <motion.p
-          className="text-lg font-semibold text-gray-800 italic cursor-pointer"
+          className="text-lg font-semibold text-gray-800 italic"
           variants={{
-            hidden: { opacity: 0, scale: 0.8 },
+            hidden: { opacity: 0, scale: 1 },
             visible: { opacity: 1, scale: 1 },
           }}
-          transition={{ duration: 1, delay: 0.6 }}
+          transition={{ duration: 1, delay: 0.8 }}
           whileHover={{ scale: 1.1, color: "#000" }}
         >
           Join us in our mission to make science education more accessible and impactful for everyone!
@@ -106,9 +130,10 @@ export default function VisionSection() {
         >
           <div className="relative w-full aspect-video">
             <motion.iframe
+              ref={videoRef}
               className="absolute inset-0 w-full h-full rounded-xl"
-              src="https://www.youtube.com/embed/hSnwf9aPcJU"
-              title="ThinkVil Introduction Video"
+              src="https://www.youtube.com/embed/GZgak41W6cQ?enablejsapi=1&mute=1&loop=1&playlist=GZgak41W6cQ"
+              title="ThinkViL Introduction Video"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -120,6 +145,7 @@ export default function VisionSection() {
           {/* Animated Dark Overlay */}
           <motion.div
             className="absolute inset-0 bg-black bg-opacity-20 rounded-xl"
+            style={{ pointerEvents: "none" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.2 }}
             whileHover={{ opacity: 0.4 }}

@@ -15,7 +15,7 @@ export default function ExploreSection() {
   const categories = [
     {
       title: "Physics",
-      description: "Explore one dimensional motion, Projectile motion and more.",
+      description: "Explore Rectilinear Motion, Cannonball Motion and more.",
       href: "/simulations/physics",
       bgColor: "from-pink-100 to-pink-300",
       textColor: "text-sky-700",
@@ -23,7 +23,7 @@ export default function ExploreSection() {
     },
     {
       title: "Mathematics",
-      description: "Explore quadratic equations, Trigonometric and more.",
+      description: "Explore Quadratic Equations, Trigonometric and more.",
       href: "/simulations/mathematics",
       bgColor: "from-teal-100 to-teal-300",
       textColor: "text-green-700",
@@ -31,7 +31,7 @@ export default function ExploreSection() {
     },
     {
       title: "Chemistry",
-      description: "Explore periodic table, Hydrogen spectrum and more.",
+      description: "Explore Periodic Table, Hydrogen Spectrum and more.",
       href: "/simulations/chemistry",
       bgColor: "from-purple-100 to-purple-300",
       textColor: "text-red-700",

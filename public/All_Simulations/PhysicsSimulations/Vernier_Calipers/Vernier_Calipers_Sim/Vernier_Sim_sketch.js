@@ -1,4 +1,12 @@
 
+//New Changes ideas 
+//1. Make for measering inner diameter, and depth
+//2. Also add Inch scale 
+
+// Latest changes No. 1
+// change: "Click here for Fullscreen and Landscape mode" to "Tap here for Fullscreen and Landscape mode"
+
+
 //--------------INPUT VARIABLES--------------------------------
 let Input,Least_count,Shape_Span;
 let Shape,Hide_btn;
@@ -33,7 +41,7 @@ function setup() {
     // -----------------FULL SCREEN AND LANDSCAPE BUTTON FOR SMART PHONE SCREEN SIZE----------------------------------------
     Dom_elements = [Canvas,Input,Least_count,Shape_Span,Shape,Hide_btn,Zoom_IN,Zoom_OUT,Random_Dim,Show_Dim,fullbtn];
     Dom_elements.forEach(el => el.hide());
-    full_landscape=createButton('Click here for Fullscreen and Landscape mode');
+    full_landscape=createButton('Tap here for Fullscreen and Landscape mode');
     full_landscape.position(0,0).size(document.documentElement.clientWidth,document.documentElement.clientHeight).style('font-size','12px');
     full_landscape.mousePressed(fulllandscape);
 
@@ -63,14 +71,14 @@ function fulllandscape(){
 }
 function exitlandscape(){
   fullscreen(false);
-  full_landscape.html('Click here for Fullscreen and Landscape mode');
+  full_landscape.html('Tap here for Fullscreen and Landscape mode');
   full_landscape.position(0,0).size(document.documentElement.clientHeight,document.documentElement.clientWidth).style('font-size','12px');
   Dom_elements.forEach(el => el.hide());
   full_landscape.mousePressed(fulllandscape);
 }
 
 function handleVisibilityChange() {
-  full_landscape.html('Click here for Fullscreen and Landscape mode');
+  full_landscape.html('Tap here for Fullscreen and Landscape mode');
   full_landscape.position(0,0).size(document.documentElement.clientHeight,document.documentElement.clientWidth).style('font-size','12px');
   Dom_elements.forEach(el => el.hide());
   full_landscape.mousePressed(fulllandscape);
@@ -119,6 +127,12 @@ function Varnier_calipers (){
     push();
     //Upper caliper 
       image(caliper_main,100,0);
+      // height measurement scale
+      push();
+        rectMode(CORNER);
+        fill(225);
+        rect(748,-70,X,15);
+      pop();
       push();
         translate(-420,-40);
         for(let i=0;i<11;i++){

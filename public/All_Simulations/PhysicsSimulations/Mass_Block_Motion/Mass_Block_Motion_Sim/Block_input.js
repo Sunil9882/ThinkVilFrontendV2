@@ -11,6 +11,7 @@ function input(){
         }
         function stop(){
           lets_start=true;
+          resume(); //resume the simulation if it is paused
           buttonstart.html('Start');
           buttonstart.style('background-color','green');
           buttonstart.mousePressed(start);
@@ -82,7 +83,7 @@ function input(){
     Input=createDiv('INPUT');
     Mass_block_Div=createDiv('MASS BLOCK');
     Gravity_Div=createDiv(' Gravity : '+'9.8 m/s²');
-    Mass_Slider=createSlider(1,10,1);
+    Mass_Slider=createSlider(1,10,5);
     Mass_Div=createDiv('Mass : '+Mass_Slider.value()+' Kg');
     Friction_Div=createDiv('FRICTION');
     Static_const_Slider=createSlider(0,1,0,0.01);

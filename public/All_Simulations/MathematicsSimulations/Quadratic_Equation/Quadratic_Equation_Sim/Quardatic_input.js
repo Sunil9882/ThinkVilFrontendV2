@@ -247,19 +247,19 @@ function input(){
 
   ResponsiveBigsize=function ResponsiveBigsize(){
       let X_I=width-360;
-      let Y_I=50;
+      let Y_I=10;
       /// Make Equation element input at same place
       let Quad_X=X_I+80;
       let Quad_Y=Y_I+70;
       // -------------------SOLUTIONS----------------------------------
       let X_O=width-360;
-      let Y_O=240; 
+      let Y_O=180; 
       ///-------------------VALUE AT Point------------------------------
       let V_X=width-360;
-      let V_Y=430;
+      let V_Y=370;
       ///-------------------DOMAIN AND RANGE------------------------------
       let D_X=width-360;
-      let D_Y=600;
+      let D_Y=540;
 
       // ------------FULL SCREEN BUTTON-----------------------
       fullbtn.position(width/2+290,9*height/10).style('font-size','13px').style('background-color','RGB(225,225,225)').style('padding','5px').style('border-radius','5px');
@@ -274,12 +274,12 @@ function input(){
       //QUADARATIC EQUATIONS
       QUAD.position(X_I+70,Y_I+15).style('font-size','20px').style('background-color','RGB(160,160,160)').style('padding','2px');
       y_Span.position(Quad_X-50, Quad_Y).style('font-size','25px');
-      A.position(Quad_X,Quad_Y).size(30,25).style('font-size','18px');
+      A.position(Quad_X,Quad_Y).size(35,25).style('font-size','15px');
       X_A.position(Quad_X+50,Quad_Y).style('font-size','25px');
-      x_square.position(Quad_X+85,Quad_Y-10).style('font-size','18px');
-      B.position(Quad_X+100,Quad_Y).size(30,25).style('font-size','18px');
+      x_square.position(Quad_X+70,Quad_Y-10).style('font-size','15px');
+      B.position(Quad_X+100,Quad_Y).size(35,25).style('font-size','15px');
       X_B.position(Quad_X+150,Quad_Y).style('font-size','25px');
-      C.position(Quad_X+200,Quad_Y).size(30,25).style('font-size','18px');
+      C.position(Quad_X+200,Quad_Y).size(35,25).style('font-size','15px');
 
     // ----------INPUT HIDE AND SHOW BUTTON--------------------------------------------------------------------------
       Hide_INbtn.position(X_I+10,Y_I+5).style('font-size','14px').style('background-color','lightcoral').style('border-radius','5px').style('border','2px solid black');

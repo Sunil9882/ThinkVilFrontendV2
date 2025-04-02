@@ -10,6 +10,7 @@ function input(){
         }
         function stop(){
           lets_start=true;
+          resume(); //resume the simulation if it is paused
           buttonstart.html('Start');
           buttonstart.style('background-color','green');
           buttonstart.mousePressed(start);
