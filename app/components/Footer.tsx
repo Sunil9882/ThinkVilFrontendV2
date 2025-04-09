@@ -63,6 +63,7 @@ export default function Footer() {
         <div>
           <h3 className="text-2xl font-bold mb-3">Follow Us</h3>
           <div className="flex justify-center md:justify-start space-x-4 mb-4 px-1">
+
             {/* LinkedIn */}
             <a
               href="https://www.linkedin.com/company/thinkvil"
@@ -71,7 +72,7 @@ export default function Footer() {
               aria-label="ThinkViL on LinkedIn"
               className="transition transform hover:scale-105 duration-300 ease-out"
             >
-              <FaLinkedin size={32} className="text-blue-700 hover:text-blue-800" />
+              <FaLinkedin size={32} className="text-blue-700 hover:text-blue-900" />
             </a>
             
             {/* X (formerly Twitter) */}
@@ -82,7 +83,7 @@ export default function Footer() {
               aria-label="ThinkViL on X"
               className="transition transform hover:scale-105 duration-300 ease-out"
             >
-              <FaXTwitter size={32} className="text-black hover:text-gray-700" />
+              <FaXTwitter size={32} className="text-black hover:text-gray-900" />
             </a>
                         
             {/* Instagram */}
@@ -95,7 +96,7 @@ export default function Footer() {
             >
               <FaInstagram
                 size={32}
-                className="text-white bg-red-600 rounded-xl"
+                className="text-white bg-red-600 hover:bg-red-800 rounded-xl"
               />
             </a>    
           </div>

@@ -1,4 +1,4 @@
 export const metadata = {
   title: "ThinkVil",
-  description: "Simulations for physics, maths, and chemistry",
+  description: "Empower Young Minds with Visual Learning",
 };

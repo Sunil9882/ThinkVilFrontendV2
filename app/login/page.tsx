@@ -105,14 +105,9 @@ export default function LoginPage() {
                   Forgot Password?
                 </Link>
               </div>
-
-              {/* Thank You Page*/}
-              <div className="text-right">
-                <Link href="/thankyou" className="text-blue-700 hover:underline text-lg font-medium">
-                  Thank You Page
-                </Link>
-              </div>
-
+                
+                
+                {/* Sign In Button */}
               <button
                 type="submit"
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-xl transition-all text-xl hover:text-black hover:font-semibold"

@@ -126,13 +126,22 @@ export default function AboutSection() {
           </p>
           <p className="mt-2">
             We are always open to suggestions for new simulations! If you have any ideas or feedback, please feel free to reach out to us. We are constantly looking for ways to improve and expand our offerings.
-            You can submit your suggestions using the <span className="font-semibold text-indigo-600">Suggestion Form</span> on the Simulations page, and you can also share your feedback at 
+            You can submit your suggestions using the
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSezqoZSLECKaWn-MxZa_1hoAV8TNrRZgoX6vWV31fBz-Z_tqQ/viewform?usp=header"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="gap-2 text-indigo-600 hover:underline font-bold px-2"
+            >
+              Suggestion Form
+            </a>
+            and you can also share your feedback at 
             <a
               href="mailto:contact.thinkvil@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Email ThinkViL"
-              className="inline-flex items-center gap-2 text-indigo-600 hover:underline font-bold px-2"
+              className="gap-2 text-indigo-600 hover:underline font-bold px-2"
               >
               contact.thinkvil@gmail.com
             </a>

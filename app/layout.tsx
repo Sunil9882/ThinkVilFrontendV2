@@ -60,7 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const pathname = usePathname();
 
   useEffect(() => {
-    const defaultMetadata = { title: "ThinkViL - Explore Science & Math | Let's Simplify Science" };
+    const defaultMetadata = { title: "ThinkViL - Explore Science & Math" };
     const { title } = pageMetadata[pathname] || defaultMetadata;
     document.title = title;
   }, [pathname]);
