@@ -36,7 +36,7 @@ const features = [
 
 const ProvideSection = () => {
   return (
-    <section className="w-full bg-white py-10">
+    <section className="w-full bg-white py-5">
       <div className="max-w-7xl mx-auto px-1 sm:px-1 lg:px-2">
         {/* Section Title */}
         <div className="text-center mb-10">
@@ -52,7 +52,7 @@ const ProvideSection = () => {
           </motion.h2>
 
           <motion.p
-            className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto mt-4"
+            className="text-lg sm:text-xl text-gray-700 max-w-5xl mx-auto mt-4"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.3 }}

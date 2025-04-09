@@ -65,9 +65,16 @@ export default function Header() {
   return (
     <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-[100] px-4 py-4 flex justify-between items-center rounded-xl">
       {/* Logo */}
-      <Link href="/" className="text-2xl font-bold flex items-center" onClick={() => setIsMenuOpen(false)}>
-        <span className="ml-2 font-extrabold font-[cursive] italic">ThinkViL</span>
-      </Link>
+      <Link
+        href="/"
+        className="text-2xl font-bold flex items-center"
+        onClick={() => setIsMenuOpen(false)}
+      >
+        <span className="ml-2 font-extrabold italic martel text-transparent bg-clip-text bg-gradient-to-br from-blue-900 to-indigo-300 hover:from-indigo-300 hover:to-blue-900 transition-all duration-500">
+          ThinkViL
+        </span>
+      </Link> 
+
 
       {/* Mobile Menu Button */}
       <button
@@ -87,8 +94,8 @@ export default function Header() {
       >
         {[
           { href: "/simulations/physics", label: "Physics" },
-          { href: "/simulations/mathematics", label: "Mathematics" },
           { href: "/simulations/chemistry", label: "Chemistry" },
+          { href: "/simulations/mathematics", label: "Mathematics" },
           { href: "/about", label: "About Us" },
         ].map(({ href, label }) => (
           <li key={href} onClick={() => setIsMenuOpen(false)}>
@@ -103,7 +110,7 @@ export default function Header() {
           {isAuthenticated ? (
             <button
               onClick={handleLogout}
-              className="px-3 py-2 rounded-xl font-semibold block bg-red-600 text-white hover:bg-red-700 transition"
+              className="px-3 py-2 rounded-xl font-semibold block bg-red-600 text-white hover:text-black hover:bg-red-700 transition"
             >
               Logout
             </button>
@@ -120,7 +127,7 @@ export default function Header() {
 
       {/* Right Section (Donate) */}
       <div className="flex items-center space-x-4">
-        <Link href="/donate" className="px-4 py-2 bg-red-500 text-white rounded-xl hover:text-black transition font-semibold">
+        <Link href="/donate" className="px-4 py-2 bg-gradient-to-br from-blue-500 to-green-500 hover:bg-gradient-to-br hover:from-green-500 hover:to-blue-500 text-white rounded-xl hover:text-black transition font-semibold">
           Donate
         </Link>
       </div>

@@ -1,58 +1,66 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function VisionSection() {
   const videoRef = useRef<HTMLIFrameElement | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const playerRef = useRef<any>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          playVideo();
-        } else {
-          pauseVideo();
-        }
-      },
-      { threshold: 0.5 } // Video is considered in view if at least 50% of it is visible
-    );
-
-    if (videoRef.current) {
-      observer.observe(videoRef.current);
-    }
-
-    return () => {
+    const onYouTubeIframeAPIReady = () => {
       if (videoRef.current) {
-        observer.unobserve(videoRef.current);
+        playerRef.current = new (window as any).YT.Player(videoRef.current, {
+          events: {
+            onReady: () => {
+              observeVisibility();
+            },
+          },
+        });
       }
     };
+
+    const loadYouTubeAPI = () => {
+      if (!(window as any).YT) {
+        const tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName("script")[0];
+        if (firstScriptTag && firstScriptTag.parentNode) {
+          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        }
+        (window as any).onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+      } else {
+        onYouTubeIframeAPIReady();
+      }
+    };
+
+    const observeVisibility = () => {
+      if (!videoRef.current) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (playerRef.current && playerRef.current.playVideo) {
+              if (entry.isIntersecting) {
+                playerRef.current.playVideo();
+              } else {
+                playerRef.current.pauseVideo();
+              }
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(videoRef.current);
+    };
+
+    loadYouTubeAPI();
   }, []);
-
-  const playVideo = () => {
-    if (videoRef.current) {
-      videoRef.current.contentWindow?.postMessage(
-        '{"event":"command","func":"playVideo","args":""}',
-        "*"
-      );
-      setIsPlaying(true);
-    }
-  };
-
-  const pauseVideo = () => {
-    if (videoRef.current) {
-      videoRef.current.contentWindow?.postMessage(
-        '{"event":"command","func":"pauseVideo","args":""}',
-        "*"
-      );
-      setIsPlaying(false);
-    }
-  };
 
   return (
     <motion.section
-      className="py-12 px-4 sm:px-6 md:px-8 text-gray-900"
+      className="py-12 text-gray-900"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
@@ -70,11 +78,11 @@ export default function VisionSection() {
             visible: { opacity: 1, y: 0 },
           }}
           transition={{ duration: 1, ease: "easeOut" }}
-          whileHover={{ scale: 1.05, color: "#2563eb" }}
+          whileHover={{ scale: 1.05, color: "#3b82f6" }}
         >
           Our{" "}
           <motion.span
-            className="text-blue-600 border-b-4 border-blue-600 pb-2 cursor-pointer"
+            className="text-blue-600 border-b-4 border-blue-600 cursor-pointer"
             variants={{
               hidden: { opacity: 0, x: -20 },
               visible: { opacity: 1, x: 0 },
@@ -100,8 +108,8 @@ export default function VisionSection() {
           <motion.span className="font-bold text-blue-700" whileHover={{ scale: 1.1 }}>
             ThinkViL
           </motion.span>
-          , we are committed to making <span className="font-bold text-blue-700">STEM</span>  education more engaging and accessible to everyone. Our interactive simulations bridge the gap between abstract concepts and real-world applications, fostering a deeper understanding among learners of all ages.
-          <br />  
+          , we are committed to making <span className="font-bold text-blue-700">STEM</span> education more <span className="font-bold text-blue-700">engaging and accessible</span> to everyone. Our interactive simulations bridge the gap between abstract concepts and real-world applications, fostering a deeper understanding among learners of all ages.
+          <br />
           Our vision is to continuously explore innovative ways to simplify scientific concepts, making them easier to grasp and more engaging.
         </motion.p>
 
@@ -119,39 +127,24 @@ export default function VisionSection() {
         </motion.p>
 
         {/* Video Section */}
-        <motion.div
-          className="relative w-full max-w-4xl mx-auto overflow-hidden rounded-xl shadow-xl"
-          variants={{
-            hidden: { opacity: 0, scale: 0.9 },
-            visible: { opacity: 1, scale: 1 },
-          }}
-          transition={{ duration: 1, delay: 0.8 }}
-          whileHover={{ scale: 1.05 }}
-        >
+        <div className="relative w-full max-w-5xl mx-auto overflow-hidden rounded-xl shadow-xl">
           <div className="relative w-full aspect-video">
-            <motion.iframe
+            <iframe
               ref={videoRef}
-              className="absolute inset-0 w-full h-full rounded-xl"
-              src="https://www.youtube.com/embed/GZgak41W6cQ?enablejsapi=1&fs=1&mute=1&loop=1&playlist=GZgak41W6cQ"
+              id="youtube-player"
+              className="absolute inset-0 w-full h-full rounded-xl cursor-auto"
+              src="https://www.youtube.com/embed/GZgak41W6cQ?enablejsapi=1&fs=1&mute=1&loop=1&controls=1&rel=0&playlist=GZgak41W6cQ"
               title="ThinkViL Introduction Video"
               frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allow="autoplay; encrypted-media; picture-in-picture"
               allowFullScreen
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-            ></motion.iframe>
+            ></iframe>
           </div>
-          {/* Animated Dark Overlay */}
-          <motion.div
+          <div
             className="absolute inset-0 bg-black bg-opacity-20 rounded-xl"
             style={{ pointerEvents: "none" }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.2 }}
-            whileHover={{ opacity: 0.4 }}
-            transition={{ duration: 0.5 }}
-          ></motion.div>
-        </motion.div>
+          ></div>
+        </div>
       </div>
     </motion.section>
   );

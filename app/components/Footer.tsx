@@ -13,7 +13,7 @@ export default function Footer() {
   if (!["/", "/about"].includes(pathname)) return null;
 
   return (
-    <footer className="bg-white text-sky-800 border-t-4 pt-4">
+    <footer className="bg-white text-sky-800 border-t-4 pt-4 mt-2">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
         
         {/* Company Section */}
@@ -28,7 +28,7 @@ export default function Footer() {
         <div>
           <h3 className="text-2xl font-bold mb-3">Quick Links</h3>
           <ul className="space-y-2 px-1 font-bold">
-            {["Physics", "Mathematics", "Chemistry"].map((title, index) => (
+            {["Physics", "Chemistry", "Mathematics"].map((title, index) => (
               <li key={index}>
                 <Link
                   href={`/simulations/${title.toLowerCase().replace(/\s+/g, "-")}`}
@@ -48,11 +48,11 @@ export default function Footer() {
             Have any questions or feedback? Reach out to us through email.
           </p>
           <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=contact.thinkvil@gmail.com"
+            href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=contact.thinkvil@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Email"
-            className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 transition transform hover:scale-105 duration-300 ease-out font-bold px-1"
+            className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 transition transform hover:scale-105 duration-300 ease-out font-bold px-1 hover:underline"
           >
             <FaEnvelope size={32} />
             <span>Email Us</span>
