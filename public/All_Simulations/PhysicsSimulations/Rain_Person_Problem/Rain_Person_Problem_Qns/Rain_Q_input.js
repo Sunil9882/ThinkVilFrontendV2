@@ -190,20 +190,19 @@ Next_btn.mousePressed(next_fn);
       Show_Answer_btn.show();
       Next_btn.style('background-color','RGBA(200,200,200,0.1)');
       Q_No+=1;
-      if(Q_No==1){
-        Question.html('Q-1: If a red car has a velocity vector of v = 15î + 7ĵ m/s and a blue car has a velocity vector of v = 10î + 10ĵ m/s, and observer is observing everything from the ground, what will be the velocity vectors of the red car and blue car according to the observer?');
-        Show_Answer_btn.html('Show Answer');
-        Answer='Red car = 15î + 7ĵ m/s, Blue car = 10î + 10ĵ m/s';
-    }else if(Q_No==2){
-        Question.html('Q-2: In the previous question, if the observer sits inside the red car, what will be the velocity vectors of the ground and the blue car as observed by the observer from the red car?');
-        Show_Answer_btn.html('Show Answer');
-        Answer='Ground = -15î - 7ĵ m/s, Blue car = -5î + 3ĵ m/s';
-    }else if(Q_No==3){
-        Question.html('Q-3: In the same scenario, if the observer shifts their position to the blue car, what will be the velocity vectors of the ground and the red car as observed by the observer from the blue car?');
-        Show_Answer_btn.html('Show Answer');
-        Answer='Ground = -10î - 10ĵ m/s, Red car = 5î - 3ĵ m/s';
-    }
-    
+      if (Q_No == 1) {
+        Question.html("Q-1: If an observer has a velocity of 4 m/s, and rain is falling vertically at a speed of 8 m/s, what will be the umbrella's safe angle?");
+        Show_Answer_btn.html("Show Answer");
+        Answer = "Safe Angle = 27°";
+      } else if (Q_No == 2) {
+          Question.html("Q-2: In the previous question, if the rain starts falling at a 15° angle from the vertical in anticlockwise direction, what will be the new safe angle for the umbrella?");
+          Show_Answer_btn.html("Show Answer");
+          Answer = "New Safe Angle = 14°";
+      } else if (Q_No == 3) {
+          Question.html("Q-3: In the same scenario, what will be the velocity of the rainfall as observed by the observer?");
+          Show_Answer_btn.html("Show Answer");
+          Answer = "Rainfall velocity (w.r.t observer) = -1.9 î - 7.7 ĵ m/s";
+      }
       else{
       Q_No-=1;
       }
@@ -218,19 +217,19 @@ Previous_btn.mousePressed(previous_fn);
     function previous_fn(){
       Previous_btn.style('background-color','RGBA(100,200,200,0.1)')
       Q_No-=1;
-      if(Q_No==1){
-        Question.html('Q-1: If a red car has a velocity vector of v = 15î + 7ĵ m/s and a blue car has a velocity vector of v = 10î + 10ĵ m/s, and observer is observing everything from the ground, what will be the velocity vectors of the red car and blue car according to the observer?');
-        Show_Answer_btn.html('Show Answer');
-        Answer='Red car = 15î + 7ĵ m/s, Blue car = 10î + 10ĵ m/s';
-    }else if(Q_No==2){
-        Question.html('Q-2: In the previous question, if the observer sits inside the red car, what will be the velocity vectors of the ground and the blue car as observed by the observer?');
-        Show_Answer_btn.html('Show Answer');
-        Answer='Ground = -15î - 7ĵ m/s, Blue car = -5î + 3ĵ m/s';
-    }else if(Q_No==3){
-        Question.html('Q-3: In the same scenario, if the observer shifts their position to the blue car, what will be the velocity vectors of the ground and the red car as observed by the observer?');
-        Show_Answer_btn.html('Show Answer');
-        Answer='Ground = -10î - 10ĵ m/s, Red car = 5î - 3ĵ m/s';
-    }
+      if (Q_No == 1) {
+        Question.html("Q-1: If an observer has a velocity of 4 m/s, and rain is falling vertically at a speed of 8 m/s, what will be the umbrella's safe angle?");
+        Show_Answer_btn.html("Show Answer");
+        Answer = "Safe Angle = 27°";
+      } else if (Q_No == 2) {
+          Question.html("Q-2: In the previous question, if the rain starts falling at a 15° angle from the vertical in anticlockwise direction, what will be the new safe angle for the umbrella?");
+          Show_Answer_btn.html("Show Answer");
+          Answer = "New Safe Angle = 14°";
+      } else if (Q_No == 3) {
+          Question.html("Q-3: In the same scenario, what will be the velocity of the rainfall as observed by the observer?");
+          Show_Answer_btn.html("Show Answer");
+          Answer = "Rainfall velocity (w.r.t observer) = -1.9 î - 7.7 ĵ m/s";
+      }
       else{
         Q_No+=1;
       }
