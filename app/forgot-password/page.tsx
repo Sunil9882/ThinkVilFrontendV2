@@ -34,36 +34,36 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div className="relative flex min-h-screen items-center justify-center bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
+    <div className="relative flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-200 to-green-200">
       {/* Background Animation */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-72 h-72 bg-white opacity-10 rounded-full blur-3xl top-10 left-20 animate-float"></div>
         <div className="absolute w-64 h-64 bg-white opacity-10 rounded-full blur-3xl bottom-10 right-20 animate-float-reverse"></div>
-      </div>
+      </div> */}
 
-      <div className="relative z-10 w-full max-w-md bg-white p-8 rounded-xl shadow-lg transition-all duration-500 transform hover:scale-105">
-        <h2 className="text-3xl font-bold text-center text-gray-900">Forgot Password?</h2>
-        <p className="text-center text-gray-600 mt-3">
+      <div className="relative z-10 w-full max-w-md bg-blue-300 p-8 rounded-xl shadow-lg transition-all duration-500 transform">
+        <h2 className="text-3xl font-bold text-center text-black">Forgot Password?</h2>
+        <p className="text-center text-gray-800 mt-3 font-medium">
           No worries! Enter your email and we'll send you a reset link.
         </p>
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-5">
           <div>
-            <label className="block text-gray-700 font-medium ml-2">Email Address</label>
+            <label className="block text-gray-900 font-medium ml-2 mb-1">Email Address</label>
             <input
               type="email"
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full p-3 border border-gray-300 focus:ring focus:ring-blue-300 transition rounded-xl"
+              className="w-full p-3 border-2 border-gray-300 rounded-xl hover:border-gray-700 text-gray-900 font-medium"
               placeholder="Enter your email"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-xl transition-all flex items-center justify-center"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white hover:text-black font-medium py-2 rounded-xl transition-all flex items-center justify-center border-2 border-gray-400 hover:border-gray-800"
             disabled={loading}
           >
             {loading ? "Sending..." : "Send Reset Link"}
@@ -86,26 +86,6 @@ export default function ForgotPassword() {
           </a>
         </div>
       </div>
-
-      {/* Animations */}
-      <style jsx>{`
-        @keyframes float {
-          0% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-          100% { transform: translateY(0px); }
-        }
-        @keyframes float-reverse {
-          0% { transform: translateY(0px); }
-          50% { transform: translateY(20px); }
-          100% { transform: translateY(0px); }
-        }
-        .animate-float {
-          animation: float 6s infinite ease-in-out;
-        }
-        .animate-float-reverse {
-          animation: float-reverse 6s infinite ease-in-out;
-        }
-      `}</style>
     </div>
   );
 }

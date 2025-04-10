@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import AuthPanel from "../components/AuthPanel";
-import SocialAuth from "../components/SignupAuth";
+import SocialAuth from "../components/LoginAuth";
 import { login, getToken, logout } from "../api/auth"; // Include logout function
 
 export default function LoginPage() {
@@ -54,9 +54,9 @@ export default function LoginPage() {
         <AuthPanel isSignup={false} toggleSignup={() => router.push("/signup")} />
 
         {/* Right Panel */}
-        <div className="w-full p-10">
-          <h2 className="text-4xl font-bold text-center text-gray-900">
-            {token ? "Welcome Back!" : "Sign In"}
+        <div className="w-full p-10 md:mt-6 sm:mt-6">
+          <h2 className="text-4xl font-bold text-center text-green-700">
+            {token ? "Welcome Back!" : "Sign in to ThinkViL"}
           </h2>
 
           {/* Social Login */}
@@ -64,7 +64,7 @@ export default function LoginPage() {
 
           {!token && (
             <p className="text-center text-xl font-medium text-gray-700 mt-2">
-              or use your email to log in
+              or use your email account:
             </p>
           )}
 
@@ -83,7 +83,7 @@ export default function LoginPage() {
                   onChange={handleChange}
                   required
                   aria-label="Email"
-                  className="w-full p-2 border-2 rounded-xl border-gray-700"
+                  className="w-full p-2 border-2 rounded-xl border-gray-500"
                 />
               </div>
               <div>
@@ -95,7 +95,7 @@ export default function LoginPage() {
                   onChange={handleChange}
                   required
                   aria-label="Password"
-                  className="w-full p-2 border-2 border-gray-700 rounded-xl"
+                  className="w-full p-2 border-2 border-gray-500 rounded-xl"
                 />
               </div>
 
@@ -105,10 +105,12 @@ export default function LoginPage() {
                   Forgot Password?
                 </Link>
               </div>
-
+                
+                
+                {/* Sign In Button */}
               <button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-xl transition-all text-xl"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-xl transition-all text-xl hover:text-black hover:font-semibold"
                 disabled={loading}
               >
                 {loading ? "Signing In..." : "Sign In"}

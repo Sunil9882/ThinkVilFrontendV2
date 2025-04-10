@@ -46,11 +46,13 @@ export default function SignupPage() {
         <AuthPanel isSignup={true} toggleSignup={() => router.push("/login")} />
 
         {/* Right Panel */}
-        <div className="w-full p-10">
-          <h2 className="text-4xl font-bold text-center text-gray-900">Create Account</h2>
+        <div className="w-full p-10 md:mt-6 sm:mt-6">
+          <h2 className="text-4xl font-bold text-center text-blue-700">Create Account</h2>
           {/* Social Login */}
           <SocialAuth />
-          <p className="text-center font-medium text-xl text-gray-700 mt-2">or use your email to register</p>
+          <p className="text-center font-medium text-xl text-gray-700 mt-2">
+            or use your email to registration:
+          </p>
           {/* Form */}
           <form onSubmit={handleSubmit} className="mt-6 space-y-4">
             {error && <p className="text-red-500 text-center">{error}</p>}
@@ -62,7 +64,7 @@ export default function SignupPage() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full p-2 rounded-xl border-2 border-gray-700"
+                className="w-full p-2 rounded-xl animate-fadeIn space-y-4 border-2 border-gray-500"
               />
             </div>
             <div>
@@ -73,7 +75,7 @@ export default function SignupPage() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full p-2 border-2 border-gray-700 rounded-xl"
+                className="w-full p-2 border-2 border-gray-500 rounded-xl"
               />
             </div>
             <div>
@@ -84,12 +86,12 @@ export default function SignupPage() {
                 value={formData.password}
                 onChange={handleChange}
                 required
-                className="w-full p-2 rounded-xl border-2 border-gray-700"
+                className="w-full p-2 rounded-xl border-2 border-gray-500"
               />
             </div>
             <button
               type="submit"
-              className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 rounded-xl transition-all text-xl"
+              className="w-full bg-green-600 hover:bg-green-700 text-white hover:text-black hover:font-semibold font-medium py-2 rounded-xl transition-all text-xl"
               disabled={loading}
             >
               {loading ? "Signing Up..." : "Sign Up"}

@@ -18,7 +18,7 @@ export default function LoginAuth() {
       {/* Google Sign In */}
       <button
         onClick={() => handleLogin("google")}
-        className="flex items-center justify-center border-2 border-gray-700 rounded-xl p-2 hover:bg-gray-200 transition-all"
+        className="flex items-center justify-center border hover:border-2 border-gray-500 hover:border-gray-900 rounded-xl p-2 hover:bg-gray-200 transition-all"
       >
         <FcGoogle size={24} />
         <span className="ml-2 font-medium">Sign in with Google</span>
@@ -27,7 +27,7 @@ export default function LoginAuth() {
       {/* GitHub Sign In */}
       <button
         onClick={() => handleLogin("github")}
-        className="flex items-center justify-center border-2 border-gray-700 rounded-xl p-2 hover:bg-gray-200 transition-all"
+        className="flex items-center justify-center border hover:border-2 border-gray-500 hover:border-gray-900 rounded-xl p-2 hover:bg-gray-200 transition-all"
       >
         <FaGithub size={24} />
         <span className="ml-2 font-medium">Sign in with GitHub</span>
