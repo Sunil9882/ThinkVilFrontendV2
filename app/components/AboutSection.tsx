@@ -137,7 +137,7 @@ export default function AboutSection() {
             </a>
             and you can also share your feedback at 
             <a
-              href="mailto:contact.thinkvil@gmail.com"
+              href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=contact.thinkvil@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Email ThinkViL"
