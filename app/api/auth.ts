@@ -48,7 +48,7 @@ export const verifyPayment = async (paymentData: Object): Promise<boolean> => {
     const response = await axiosClient.post("/api/payment/verify-payment", {paymentData});
     return response.data;
   } catch (error) {
-    console.error("varify Payment Error:", error);
+    console.error("verify Payment Error:", error);
     throw error; // Rethrow error for handling in the calling function
   }
 };
@@ -65,6 +65,23 @@ export const saveDonation = async (donationData: Object): Promise<boolean> => {
     return response.data;
   } catch (error) {
     console.error("save Payment Error:", error);
+    throw error; // Rethrow error for handling in the calling function
+  }
+};
+
+
+/**
+ * Login via o-auth 
+ * @param {object} donationData - User & donation details
+ * @param {string} token - JWT token for authentication
+ * @returns {Promise<boolean>} - Whether donation was saved successfully
+ */
+export const logInAuth = async (provider: string): Promise<boolean> => {
+  try {
+    const response = await axiosClient.post(`/oauth2/authorization/${provider}`);
+    return response.data;
+  } catch (error) {
+    console.error("login Error:", error);
     throw error; // Rethrow error for handling in the calling function
   }
 };
