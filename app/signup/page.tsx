@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signup } from "../api/auth"; // Import signup API function
 import AuthPanel from "../components/AuthPanel";
-import SocialAuth from "../components/SignupAuth";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -49,7 +48,6 @@ export default function SignupPage() {
         <div className="w-full p-10 md:mt-6 sm:mt-6">
           <h2 className="text-4xl font-bold text-center text-blue-700">Create Account</h2>
           {/* Social Login */}
-          <SocialAuth />
           <p className="text-center font-medium text-xl text-gray-700 mt-2">
             or use your email to registration:
           </p>

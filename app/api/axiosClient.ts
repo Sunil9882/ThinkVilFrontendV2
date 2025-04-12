@@ -1,10 +1,12 @@
 import axios from "axios";
 import { getToken } from "./auth";
 
-console.log("url " + process.env.NEXT_PUBLIC_API_URL);
+console.log("url " + process.env.NEXT_PUBLIC_API_BASE_URL);
+console.log("url " + process.env.NEXT_PUBLIC_API_GOOGLE_CLIENT_ID);
+console.log("url " + process.env.NEXT_PUBLIC_API_REDIRECT_URI);
 
 const axiosClient = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL, // Base URL
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL, // Base URL
   headers: {
     "Content-Type": "application/json",
   },

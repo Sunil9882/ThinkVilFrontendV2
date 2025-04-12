@@ -6,7 +6,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import type React from "react";
-import { SessionProvider } from "next-auth/react";
 import Footer from "./components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -72,13 +71,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
       <body className={`${inter.className} flex flex-col min-h-screen`}>
-        <SessionProvider>
           <Header />
           <main className="w-full px-1">
             {children}
           </main>
           <Footer />
-        </SessionProvider>
       </body>
     </html>
   );
