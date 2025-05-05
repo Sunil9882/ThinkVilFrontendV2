@@ -243,16 +243,16 @@ function input(){
           }
 
 //---------------------THINKVIL QUESTIONS--------------------------------------------------
-      let Question_Box=createDiv('');
-      let Question = createDiv('Instructions:<br>&nbsp;&nbsp;&nbsp; Press the "Hide (-)" button in the upper left corner to hide the questions.<br>&nbsp;&nbsp;&nbsp; Press the "Previous" and "Next" buttons to access Thinkvil questions.<br>&nbsp;&nbsp;&nbsp; Press the "Show Answer" button to view the correct answer.<br>&nbsp;&nbsp;&nbsp; Solve the questions in your notebook and use our simulation for better visualization and to find the correct answer.');
-      let Show_Answer_btn=createButton('Show Answer');
+      Question_Box=createDiv('');
+      Question = createDiv('Instructions:<br>&nbsp;&nbsp;&nbsp; Press the "Hide (-)" button in the upper left corner to hide the questions.<br>&nbsp;&nbsp;&nbsp; Press the "Previous" and "Next" buttons to access Thinkvil questions.<br>&nbsp;&nbsp;&nbsp; Press the "Show Answer" button to view the correct answer.<br>&nbsp;&nbsp;&nbsp; Solve the questions in your notebook and use our simulation for better visualization and to find the correct answer.');
+      Show_Answer_btn=createButton('Show Answer');
       Show_Answer_btn.hide();
       Show_Answer_btn.mousePressed(showanswer_fn);
           function showanswer_fn(){
             Show_Answer_btn.html(Answer)
           }
       //-----------Next button-------------------------------------------------------------------
-      let Next_btn=createButton('Next');
+      Next_btn=createButton('Next');
       let Q_No=0;
       Next_btn.mousePressed(next_fn);
           function next_fn(){
@@ -302,7 +302,7 @@ function input(){
             Next_btn.style('background-color','RGBA(200,200,200,0.8)')
           }
       //-------------previous button---------------------------------------------------------------------
-      let Previous_btn=createButton('Previous');
+      Previous_btn=createButton('Previous');
       Previous_btn.mousePressed(previous_fn);
           function previous_fn(){
             Previous_btn.style('background-color','RGBA(100,200,200,0.1)')
@@ -350,7 +350,7 @@ function input(){
             Previous_btn.style('background-color','RGBA(200,200,200,0.8)')
           }
       //--------------Hide button--------------------------------
-      let Hide_Qns=createButton('-');
+      Hide_Qns=createButton('-');
       Hide_Qns.mousePressed(Hideqns_fn);
         function Hideqns_fn(){              
           Hide_Qns.html('+');

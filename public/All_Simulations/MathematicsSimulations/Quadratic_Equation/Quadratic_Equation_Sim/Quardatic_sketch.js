@@ -49,7 +49,6 @@ function setup() {
   }
   else if(Small_size<document.documentElement.clientWidth && document.documentElement.clientWidth<=Medium_size){
     ResponsiveMediumsize();
-    ResponsiveSmallsize();
 
   }
   else if( document.documentElement.clientWidth>Medium_size){
