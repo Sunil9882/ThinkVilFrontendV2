@@ -89,7 +89,7 @@ export default function HomeSection() {
             >
               Explore interactive simulations that spark creativity and critical thinking in{" "}
               <span className="text-yellow-400 font-semibold">Physics</span>,{" "}
-              <span className="text-green-400 font-semibold">Chemistry</span>, and{" "}
+              <span className="text-green-400 font-semibold">Chemistry</span> and{" "}
               <span className="text-red-400 font-semibold">Mathematics</span>.
             </motion.p>
           </div>

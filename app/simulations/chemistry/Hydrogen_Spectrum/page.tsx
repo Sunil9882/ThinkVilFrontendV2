@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 const HydrogenSpectrum = () => {
   const [loading, setLoading] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState("");
-  const [selectedVideo, setSelectedVideo] = useState<string>("HGCQPI-46nQ");
+  const [selectedVideo, setSelectedVideo] = useState<string>("BvBIA__0xl0");
   const [selectedButton, setSelectedButton] = useState<string>("video1");
   const router = useRouter();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -33,7 +33,7 @@ const HydrogenSpectrum = () => {
   return (
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-blue-100 to-green-300 px-4 py-6 rounded-2xl mt-2">
       <header className="bg-blue-500 w-full text-white text-center py-4 sm:py-6 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mt-12 md:mt-12 rounded-xl shadow-lg">
-        Periodic Table Simulation
+        Hydrogen Spectrum Simulation
       </header>
 
       {/* Video and Google Forms Buttons */}
@@ -43,8 +43,8 @@ const HydrogenSpectrum = () => {
           className="flex gap-6 md:gap-10 lg:gap-12 items-center overflow-x-auto scrolling-touch scroll-smooth whitespace-nowrap pb-2"
         >
           {[ 
-            { id: "video1", label: "Simulation Tutorial", videoId: "HGCQPI-46nQ" },
-            { id: "video2", label: "Educational Videos", videoId: "zXSOU_fkG8Q" },
+            { id: "video1", label: "Simulation Tutorial", videoId: "BvBIA__0xl0" },
+            { id: "video2", label: "Educational Videos", videoId: "3cP-ddx8H-E" },
           ].map(({ id, label, videoId }) => (
             <button
               key={id}
@@ -88,7 +88,7 @@ const HydrogenSpectrum = () => {
         <button
           onClick={() => startSimulation(
             "ThinkViL Simulation is loading...", 
-            "/All_Simulations/ChemistrySimulations/Periodic_Table/Periodic_Table_Sim/index.html"
+            "/All_Simulations/ChemistrySimulations/Hydrogen_Spectrum/Hydrogen_Spectrum_Sim/index.html"
           )}
           className="bg-sky-500 text-white text-base sm:text-lg px-8 md:px-10 py-3 md:py-4 rounded-xl shadow-md hover:bg-green-500 transition-all duration-300 font-bold"
         >

@@ -1,28 +1,28 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 
-const Cars_RelativeMotion = () => {
+const ElectronicConfigration = () => {
   const [loading, setLoading] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState("");
-  const [selectedVideo, setSelectedVideo] = useState<string>("qHCUwylFnfg");
+  const [selectedVideo, setSelectedVideo] = useState<string>("ZioMticlHmw");
   const [selectedButton, setSelectedButton] = useState<string>("video1");
   const router = useRouter();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const startSimulation = useCallback((message: string, url: string) => {
+  const startSimulation = (message: string, url: string) => {
     setLoading(true);
     setLoadingMessage(message);
     setTimeout(() => {
       router.replace(url);
     }, 1000);
-  }, [router]);
+  };
 
-  const handleVideoSelection = useCallback((videoId: string, buttonId: string) => {
+  const handleVideoSelection = (videoId: string, buttonId: string) => {
     setSelectedVideo(videoId);
     setSelectedButton(buttonId);
-  }, []);
+  };
 
   useEffect(() => {
     if (scrollContainerRef.current) {
@@ -33,18 +33,18 @@ const Cars_RelativeMotion = () => {
   return (
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-blue-100 to-green-300 px-4 py-6 rounded-2xl mt-2">
       <header className="bg-blue-500 w-full text-white text-center py-4 sm:py-6 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mt-12 md:mt-12 rounded-xl shadow-lg">
-        Cars Relative Motion Simulation
+        Electronic Configuration Simulation
       </header>
 
-      {/* Video Selection */}
+      {/* Video and Google Forms Buttons */}
       <div className="w-full mt-4 md:mt-6 px-3 py-2 border border-gray-400 rounded-xl bg-slate-300 shadow-md flex justify-center">
-        <div 
-          ref={scrollContainerRef} 
+        <div
+          ref={scrollContainerRef}
           className="flex gap-6 md:gap-10 lg:gap-12 items-center overflow-x-auto scrolling-touch scroll-smooth whitespace-nowrap pb-2"
         >
-          {[
-            { id: "video1", label: "Simulation Tutorial", videoId: "qHCUwylFnfg" },
-            { id: "video2", label: "Educational Videos", videoId: "6QYnUC-LiJY" },
+          {[ 
+            { id: "video1", label: "Simulation Tutorial", videoId: "ZioMticlHmw" },
+            { id: "video2", label: "Educational Videos", videoId: "EXQup5GTbgQ" },
           ].map(({ id, label, videoId }) => (
             <button
               key={id}
@@ -54,11 +54,12 @@ const Cars_RelativeMotion = () => {
               }`}
             >
               {label}
-              <span className={`absolute left-0 bottom-0 h-1 bg-indigo-500 transition-all duration-300 ${selectedButton === id ? "w-full" : "w-0"}`}
-            />
+              <span
+                className={`absolute left-0 bottom-0 h-1 bg-indigo-500 transition-all duration-300 ${selectedButton === id ? "w-full" : "w-0"}`}
+              />
             </button>
           ))}
-          
+
           {/* Suggestion Form Button */}
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSezqoZSLECKaWn-MxZa_1hoAV8TNrRZgoX6vWV31fBz-Z_tqQ/viewform?usp=header"
@@ -73,32 +74,25 @@ const Cars_RelativeMotion = () => {
 
       {/* Video Section */}
       <div className="w-full max-w-3xl flex justify-center mb-4 md:mb-6 mt-3 md:mt-4">
-        <iframe className="w-full aspect-video rounded-xl shadow-lg" 
+        <iframe
+          className="w-full aspect-video rounded-xl shadow-lg"
           src={`https://www.youtube.com/embed/${selectedVideo}?controls=1&loop=1&playlist=${selectedVideo}`}
-          title="Cars Relative Motion Tutorial" 
-          allowFullScreen>
+          title="Periodic Table Tutorial"
+          allowFullScreen
+        >
         </iframe>
       </div>
-
+      
       {/* Simulation Buttons */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-2 py-2">
+      <div className="flex justify-center mt-2 py-2">
         <button
           onClick={() => startSimulation(
             "ThinkViL Simulation is loading...", 
-            "/All_Simulations/PhysicsSimulations/Cars_Relative_Motion/Cars_Relative_Motion_Sim/index.html"
+            "/All_Simulations/ChemistrySimulations/Electron_Configuration/Electron_Configuration_Sim/index.html"
           )}
           className="bg-sky-500 text-white text-base sm:text-lg px-8 md:px-10 py-3 md:py-4 rounded-xl shadow-md hover:bg-green-500 transition-all duration-300 font-bold"
         >
           Start Simulation
-        </button>
-        <button
-          onClick={() => startSimulation(
-            "ThinkViL Questions is loading...", 
-            "/All_Simulations/PhysicsSimulations/Cars_Relative_Motion/Cars_Relative_Motion_Qns/index.html"
-          )}
-          className="bg-sky-500 text-white text-base sm:text-lg px-8 md:px-10 py-3 md:py-4 rounded-xl shadow-md hover:bg-green-500 transition-all duration-300 font-bold"
-        >
-          ThinkViL Questions
         </button>
       </div>
 
@@ -108,9 +102,9 @@ const Cars_RelativeMotion = () => {
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black">ThinkViL</h1>
           <p className="text-sm sm:text-lg text-gray-600">{loadingMessage}</p>
           <div className="mt-4 animate-spin h-8 w-8 sm:h-10 sm:w-10 text-blue-600">
-            <svg 
-              viewBox="0 0 24 24" 
-              fill="none" 
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -123,4 +117,4 @@ const Cars_RelativeMotion = () => {
   );
 };
 
-export default Cars_RelativeMotion;
+export default ElectronicConfigration;

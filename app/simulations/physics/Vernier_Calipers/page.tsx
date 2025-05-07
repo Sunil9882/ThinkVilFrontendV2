@@ -45,7 +45,7 @@ const VernierCaliper = () => {
           {/* Video Buttons */}
           {[
             { id: "video1", label: "Simulation Tutorial", videoId: "9xPHCgmA6V0" },
-            { id: "video2", label: "Educational Videos", videoId: "zXSOU_fkG8Q" },
+            { id: "video2", label: "Educational Videos", videoId: "dg5_pouChFc" },
           ].map(({ id, label, videoId }) => (
             <button
               key={id}

@@ -7,7 +7,6 @@ const mathsTopics = [
     image: "/All_Images/Simulation_Images/Mathematics/Quadratic_Equation.png", 
     link: "/simulations/mathematics/Quadratic_Equation" 
   },
-
   // Add more topics here
 ];
 
