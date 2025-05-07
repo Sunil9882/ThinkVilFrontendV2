@@ -7,6 +7,16 @@ const chemistryTopics = [
     image: "/All_Images/Simulation_Images/Chemistry/Periodic_Table.png", 
     link: "/simulations/chemistry/Periodic_Table" 
   },
+  { 
+    title: "Hydrogen Spectrum", 
+    image: "/All_Images/Simulation_Images/Chemistry/Hydrogen_Spectrum.png",
+    link: "/simulations/chemistry/Hydrogen_Spectrum" 
+  },
+  { 
+    title: "Electronic Configuration",
+    image: "/All_Images/Simulation_Images/Chemistry/Electron_Configuration.png",
+    link: "/simulations/chemistry/Electron_Configuration" 
+  },
   // add more
 ];
 

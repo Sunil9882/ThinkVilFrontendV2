@@ -123,10 +123,10 @@ export default function Header() {
               href="/login"
               onClick={() => setIsMenuOpen(false)} // <-- Close on Login click
               className="px-3 py-2 rounded-xl block hover:bg-sky-300 transition"
-              aria-label="Login"
-              // title="Login"
+              // aria-label="Login"
+              title="Login"
             >
-              <User className=" hover:text-black" />
+              <User className="hover:text-black" />
             </Link>
           )}
         </li>

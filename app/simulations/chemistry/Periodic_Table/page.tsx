@@ -44,7 +44,7 @@ const PeriodicTable = () => {
         >
           {[ 
             { id: "video1", label: "Simulation Tutorial", videoId: "HGCQPI-46nQ" },
-            { id: "video2", label: "Educational Videos", videoId: "zXSOU_fkG8Q" },
+            { id: "video2", label: "Educational Videos", videoId: "UTdkCQsavhs" },
           ].map(({ id, label, videoId }) => (
             <button
               key={id}

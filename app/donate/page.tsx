@@ -139,9 +139,7 @@ export default function Donate() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 pt-14 m-4">
       <div className="flex flex-col md:flex-row w-full max-w-5xl bg-white shadow-lg rounded-xl overflow-hidden border border-gray-300">
-        {/* Top Section for Mobile / Left Section for Desktop */}
         <div className="w-full md:w-1/2 flex flex-col items-center justify-center text-black bg-gradient-to-br from-blue-600 to-green-400 p-8 relative">
-          {/* Floating Background Elements */}
           <div className="absolute w-60 h-60 bg-white opacity-10 rounded-full blur-3xl top-10 left-10 animate-float hidden md:block"></div>
           <div className="absolute w-48 h-48 bg-white opacity-10 rounded-full blur-3xl bottom-10 right-10 animate-float-reverse hidden md:block"></div>
 
@@ -158,7 +156,6 @@ export default function Donate() {
           </p>
         </div>
 
-        {/* Bottom Section for Mobile / Right Section for Desktop */}
         <div className="w-full md:w-1/2 p-10 flex flex-col justify-center bg-gradient-to-bl from-blue-100 to-green-100 relative">
           <p className="text-gray-900 text-center mb-6 font-medium">Your generosity helps us continue our mission. Make a difference today!</p>
 
@@ -172,20 +169,25 @@ export default function Donate() {
               <option value="Other">Other</option>
             </select>
 
-            {country === "Other" && <input type="text" placeholder="Enter Country *" value={customCountry} onChange={(e) => setCustomCountry(e.target.value)} className="w-full p-3 border border-gray-400 rounded-xl" required />}
+            {country === "Other" && (
+              <input type="text" placeholder="Enter Country *" value={customCountry} onChange={(e) => setCustomCountry(e.target.value)} className="w-full p-3 border border-gray-400 rounded-xl" required />
+            )}
 
-            {country && states.length > 0 && <select value={state} onChange={(e) => setState(e.target.value)} className="w-full p-3 border border-gray-400 rounded-xl" required>
-              <option value="" disabled>Select State *</option>
-              {states.map((s) => (<option key={s.isoCode} value={s.isoCode}>{s.name}</option>))}
-              <option value="Other">Other</option>
-            </select>}
+            {country && states.length > 0 && (
+              <select value={state} onChange={(e) => setState(e.target.value)} className="w-full p-3 border border-gray-400 rounded-xl">
+                <option value="">Select State (Optional)</option>
+                {states.map((s) => (<option key={s.isoCode} value={s.isoCode}>{s.name}</option>))}
+                <option value="Other">Other</option>
+              </select>
+            )}
 
-            {(country === "Other" || state === "Other") && <input type="text" placeholder="Enter State *" value={customState} onChange={(e) => setCustomState(e.target.value)} className="w-full p-3 border border-gray-400 rounded-xl" required />}
+            {(country === "Other" || state === "Other") && (
+              <input type="text" placeholder="Enter State (Optional)" value={customState} onChange={(e) => setCustomState(e.target.value)} className="w-full p-3 border border-gray-400 rounded-xl" />
+            )}
 
-            {/* Preset Donation Amounts */}
             <div className="grid grid-cols-2 gap-4">
               {presetAmounts.map(({ amount, icon: Icon, label }) => (
-                <button key={amount} type="button" onClick={() => handleAmountClick(amount)} 
+                <button key={amount} type="button" onClick={() => handleAmountClick(amount)}
                   className={`flex flex-col items-center justify-center p-4 border-4 rounded-2xl transition-all duration-300 ${customAmount === amount.toString() ? "border-blue-600 bg-blue-100 scale-105" : "border-gray-400 hover:border-green-500 hover:scale-105"}`}>
                   <Icon className="w-6 h-6 mb-2" />
                   <span className="font-bold">{label}</span>
@@ -193,8 +195,7 @@ export default function Donate() {
               ))}
             </div>
 
-            {/* Custom Amount Input */}
-            <input type="number" placeholder="Enter Custom Amount *" value={customAmount} onChange={(e) => setCustomAmount(Math.max("", Number(e.target.value)).toString())} className="w-full p-3 border border-gray-400 rounded-xl" required />
+            <input type="number" placeholder="Enter Custom Amount *" value={customAmount} onChange={(e) => setCustomAmount(Math.max(0, Number(e.target.value)).toString())} className="w-full p-3 border border-gray-400 rounded-xl" required />
 
             <button type="submit" onClick={handlePayment} className="w-full text-xl bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-800 transition-all hover:text-black hover:border-black hover:font-bold border-4 border-gray-500">
               Complete Your Gift
